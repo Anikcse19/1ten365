@@ -1,22 +1,32 @@
 import Logo from "@/components/shared/Header/Logo/Logo";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
-import { useState } from "react";
-
+import { API_BASE_URL } from "@/config";
+import base_url from "@/utils/Url";
+import axios from "axios";
+import { useEffect, useState } from "react";
 const AdminPage = () => {
     const [adminType, setAdminType] = useState("");
     const [adminId, setAdminId] = useState("");
     const [searchedResult, setSearchedResult] = useState({});
 
-    // useEffect(()=>{
-  //   fetch(`${API_BASE_URL}/admins/types`,{
-  //     method:'POST',
-  //     headers:{
-  //       'Accept':'application/json',
-  //       'Content-type':'application/json',
-  //       Authrization:`Bearer `
-  //     }
-  //   }).then(res=>res.json()).then(data=>console.log(data))
-  // },[])
+    useEffect(()=>{
+    // fetch(`${base_url}/admins/types/`,{
+    //   method:'GET',
+    //   headers:{
+    //     'Accept':'application/json',
+    //     'Content-type':'application/json',
+    //     Authrization:`Bearer 3|C1wSml7Z417RQhEkHtT5zEaXfMJANtw04QfLb8Ai4aee0a78`
+    //   }
+    // }).then(res=>res.json()).then(data=>console.log(data))
+
+    axios.get(`${base_url}/admins`,{
+      headers:{
+        Accept:'application/json',
+        "Content-Type":'application/json',
+        Authorization:'Bearer 3|C1wSml7Z417RQhEkHtT5zEaXfMJANtw04QfLb8Ai4aee0a78'
+      }
+    }).then(res=>console.log(res.data))
+  },[])
 
 
     const handleAdminSearch = () => {

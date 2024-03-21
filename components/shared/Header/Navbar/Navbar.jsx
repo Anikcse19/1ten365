@@ -9,6 +9,7 @@ const Navbar = () => {
     <div className="w-full">
       <div className="w-[80%] bg-gray-300 mx-auto py-1">
         <div className="flex justify-center gap-5 w-full ">
+          
           <Link
             className={`text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded ${pathname=='/' && "bg-gray-900 text-white"}`}
             href="/"
@@ -60,6 +61,13 @@ const Navbar = () => {
             href="/Admins/Agent"
           >
             এজেন্ট
+          </Link>
+
+          <Link
+            className="text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded"
+            href="/Dashboard"
+          >
+            DB
           </Link>
         </div>
       </div>

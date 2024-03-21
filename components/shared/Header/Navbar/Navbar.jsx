@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="w-[80%] bg-gray-300 mx-auto py-1">
         <div className="flex justify-center gap-5 w-full ">
           <Link
-            className="text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded"
+            className={`text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded ${pathname=='/' && "bg-gray-900 text-white"}`}
             href="/"
           >
             হোম
@@ -21,14 +21,14 @@ const Navbar = () => {
           >
             কাস্টমার সার্ভিস
           </Link>
-          <Link
+          {/* <Link
             className={`${
               pathname == "/Admins/SiteAdmin" && "bg-gray-900 text-white"
             } text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded`}
             href="/Admins/SiteAdmin"
           >
             সাইট এডমিন
-          </Link>
+          </Link> */}
           <Link
             className={`${
               pathname === "/Admins/Admin" && "bg-gray-900 text-white"

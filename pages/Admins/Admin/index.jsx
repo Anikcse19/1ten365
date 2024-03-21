@@ -1,44 +1,64 @@
 import Logo from "@/components/shared/Header/Logo/Logo";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
-import { API_BASE_URL } from "@/config";
 import base_url from "@/utils/Url";
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { IoLogoWhatsapp } from "react-icons/io";
+
+
+
+
+const ls=typeof window != "undefined" ? window.localStorage : null
+const token=ls?.getItem('token')
+
 const AdminPage = () => {
     const [adminType, setAdminType] = useState("");
     const [adminId, setAdminId] = useState("");
     const [searchedResult, setSearchedResult] = useState({});
+    const [types,setTypes]=useState([])
+    const [siteAdmins,setSiteAdmins]=useState([])
+
+    const router=useRouter()
 
     useEffect(()=>{
-    // fetch(`${base_url}/admins/types/`,{
-    //   method:'GET',
-    //   headers:{
-    //     'Accept':'application/json',
-    //     'Content-type':'application/json',
-    //     Authrization:`Bearer 3|C1wSml7Z417RQhEkHtT5zEaXfMJANtw04QfLb8Ai4aee0a78`
-    //   }
-    // }).then(res=>res.json()).then(data=>console.log(data))
 
-    axios.get(`${base_url}/admins`,{
+    fetch(`${base_url}/admins/types`,{
+      method:'GET',
       headers:{
-        Accept:'application/json',
-        "Content-Type":'application/json',
-        Authorization:'Bearer 3|C1wSml7Z417RQhEkHtT5zEaXfMJANtw04QfLb8Ai4aee0a78'
+        'Accept':'application/json',
+        // 'Content-type':'application/json',
+        'Authorization':`Bearer ${token}`
       }
-    }).then(res=>console.log(res.data))
+    }).then(res=>res.json()).then(data=>{
+      setTypes(data.types)
+      setAdminType(types[1])
+    })
+
+    fetch(`${base_url}/admins?type=এডমিন`,{
+      method:'GET',
+      headers:{
+        'Accept':'application/json',
+        'Content-type':'application/json',
+        'Authorization':`Bearer ${token}`
+      }
+    }).then(res=>res.json()).then(data=>setSiteAdmins(data.admins))
   },[])
+
+console.log(searchedResult,'s');
 
 
     const handleAdminSearch = () => {
+      console.log(adminId,adminType);
         axios
-          .get(`${API_BASE_URL}/admins/${adminId}?type=${adminType}`, {
+          .get(`${base_url}/admins/${adminId}?type=${adminType}`, {
             headers: {
               Accept: "application/json",
               Authorization: `Bearer ${token}`,
             },
           })
           .then((res) => {
-            setSearchedResult(res.data);
+            setSearchedResult(res.data.admin);
           });
       };
   return (
@@ -65,11 +85,11 @@ const AdminPage = () => {
               id=""
               className="outline-none border-2 border-black px-2 py-1 w-[220px]"
             >
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
+             {
+              types.slice(1,5)?.map(type=>(
+                <option value={type}>{type}</option>
+              ))
+             }
             </select>
           </div>
           <div className="flex items-center gap-5">
@@ -97,7 +117,9 @@ const AdminPage = () => {
         {/* agent/admin search end */}
 
         {/* show search result start */}
-        <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+        {
+          searchedResult?.id && (
+            <div className="w-[80%] mx-auto bg-white  p-5 my-10">
           {/* show search admin details start*/}
           <p className="text-center text-base lg:text-lg font-bold mb-3">
             উনি 1ten365 এর একজন অনলাইন সাব এডমিন নাম্বার 12
@@ -162,13 +184,15 @@ const AdminPage = () => {
           
 
         </div>
+          )
+        }
 
         {/* show search result end */}
 
         {/* user alert start*/}
         <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
           <p className="text-base lg:text-xl font-bold">
-            এজেন্ট দের সাথে লেনদেন এর আগে ভেল্কির নিয়ম গুলো জেনে নিন!!
+            এজেন্ট দের সাথে লেনদেন এর আগে 1ten365 এর নিয়ম গুলো জেনে নিন!!
           </p>
           <p>
             **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন 1ten365.com
@@ -182,7 +206,68 @@ const AdminPage = () => {
         {/* user alert end*/}
 
         {/* admin table start */}
-        {}
+        {
+          siteAdmins?.map(siteAdmin=>(
+            <div className="w-[80%] mx-auto bg-white   p-5 my-10" key={siteAdmin?.id}>
+              <div className="text-center">
+              <span className="text-center text-base md:text-xl">সর্বমোট এডমিন আছে {siteAdmins?.length} জন</span>
+              </div>
+              <div className="w-full relative overflow-x-auto overflow-y-auto max-w-screen  max-h-screen mt-5 border-2 border-orange-700 ">
+          <table className="w-full">
+            <thead className="sticky top-0 text-base bg-gray-400 w-full">
+              <tr className="border-b border-orange-700 ">
+                <th scope="col" className="px-10 py-3">
+                  ID NO
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  AGENT
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  APP
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  PHONE NUMBER
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  COMPALIN
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                siteAdmins?.map(admin=>{
+                  
+                  return (
+                    (
+                      <tr key={admin.id} className="border-b border-black text-[14px]">
+                        <td className="px-3 py-3 text-center">{admin?.input_id}</td>
+                        <td className="px-3 py-3 text-center">
+                          {admin?.profile?.type}
+                        </td>
+                        <td className="px-3 py-3 text-center flex justify-center items-center">
+                          <IoLogoWhatsapp onClick={()=>{
+                            window.open(`https://wa.me/${admin?.profile?.phone}`,'_blank')
+                          }} className="text-base md:text-xl font-bold text-green-600 cursor-pointer"/>
+                        </td>
+                        <td className="px-3 py-3 text-center">
+                         {admin?.profile?.phone}
+                        </td>
+                        <td className="px-3 py-3 font-bold text-center cursor-pointer hover:underline hover:text-blue-800">
+                        অভিযোগ
+                        </td>
+                        
+                      </tr>
+                    )
+                  )
+                })
+              }
+            </tbody>
+          </table>
+        </div>
+
+            </div>
+          ))
+        }
         {/* admin table end */}
       </div>
     </div>

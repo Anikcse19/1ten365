@@ -1,6 +1,7 @@
 import Logo from "@/components/shared/Header/Logo/Logo";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
 import { useState } from "react";
+
 const AdminPage = () => {
     const [adminType, setAdminType] = useState("");
     const [adminId, setAdminId] = useState("");

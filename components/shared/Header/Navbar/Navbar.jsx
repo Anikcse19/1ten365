@@ -6,7 +6,7 @@ const Navbar = () => {
   const { pathname } = router;
   console.log(pathname);
   return (
-    <div className="w-full">
+    <div className="w-full bg-red-600">
       <div className="w-[80%] bg-gray-300 mx-auto py-1">
         <div className="flex justify-center gap-5 w-full ">
           <Link

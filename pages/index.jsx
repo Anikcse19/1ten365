@@ -1,12 +1,32 @@
 import Logo from "@/components/shared/Header/Logo/Logo";
 import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
+import base_url from "@/utils/Url";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { HiInformationCircle } from "react-icons/hi";
 import { IoLogoWhatsapp } from "react-icons/io";
 import logo from "../public/images/1ten365logo.png";
-import Image from "next/image";
 
+const ls=typeof window != "undefined" ? window.localStorage :null
+const token=ls?.getItem('token')
 export default function Home() {
+  const [quickAgent,setQuickAgent]=useState({})
+
+  useEffect(()=>{
+    fetch(`${base_url}/quick-agent`,{
+      method:'GET',
+      headers:{
+        'Accept':'application/json',
+        'Content-type':'application/json',
+        'Authorization':`Bearer ${token}`
+      }
+    }).then(res=>res.json()).then(data=>{
+      setQuickAgent(data?.quickagent)
+    })
+  },[])
+
+  console.log(quickAgent);
   return (
     <div>
       <>

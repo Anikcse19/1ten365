@@ -1,3 +1,4 @@
-const base_url="https://8a16-103-12-72-131.ngrok-free.app/api"
+const base_url="https://test.aglist1ten365.com/api"
+// const base_url=''
 
 export default base_url

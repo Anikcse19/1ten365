@@ -1,0 +1,129 @@
+{
+  "msg": "success",
+  "admins": [
+    {
+      "id": 4,
+      "name": "anikkkdfgfgs",
+      "email": "anikkfgsfgk@gmail.com",
+      "email_verified_at": null,
+      "has_admin_access": 0,
+      "admin_id": null,
+      "created_at": "2024-03-20T21:09:00.000000Z",
+      "updated_at": "2024-03-20T21:09:00.000000Z",
+      "children": [
+        {
+          "id": 6,
+          "name": "sahkgdjkac",
+          "email": "anikkfsgsfgk@gmail.com",
+          "email_verified_at": null,
+          "has_admin_access": 0,
+          "admin_id": 4,
+          "created_at": "2024-03-21T06:34:53.000000Z",
+          "updated_at": "2024-03-21T06:34:53.000000Z"
+        },
+        {
+          "id": 8,
+          "name": "sahkgdjkac",
+          "email": "s@gmail.com",
+          "email_verified_at": null,
+          "has_admin_access": 0,
+          "admin_id": 4,
+          "created_at": "2024-03-21T06:35:24.000000Z",
+          "updated_at": "2024-03-21T06:35:24.000000Z"
+        }
+      ],
+      "profile": {
+        "id": 1,
+        "type": "Admin",
+        "fb_link": "asdasdas",
+        "msngr_link": "asdasdas",
+        "wa_link": "sdasdasdfwer",
+        "tg_link": "asdasdas",
+        "phone": "+121231231231",
+        "user_id": 4,
+        "created_at": "2024-03-20T21:09:00.000000Z",
+        "updated_at": "2024-03-20T21:09:00.000000Z"
+      }
+    },
+    {
+      "id": 6,
+      "name": "sahkgdjkac",
+      "email": "anikkfsgsfgk@gmail.com",
+      "email_verified_at": null,
+      "has_admin_access": 0,
+      "admin_id": 4,
+      "created_at": "2024-03-21T06:34:53.000000Z",
+      "updated_at": "2024-03-21T06:34:53.000000Z",
+      "children": [
+        {
+          "id": 9,
+          "name": "aaa",
+          "email": "a@gmail.com",
+          "email_verified_at": null,
+          "has_admin_access": 0,
+          "admin_id": 6,
+          "created_at": "2024-03-21T07:10:01.000000Z",
+          "updated_at": "2024-03-21T07:10:01.000000Z"
+        }
+      ],
+      "profile": {
+        "id": 2,
+        "type": "Sub Admin",
+        "fb_link": "asdasdas",
+        "msngr_link": "asdasdas",
+        "wa_link": "sdasdasdfwer",
+        "tg_link": "asdasdas",
+        "phone": "+121231231231",
+        "user_id": 6,
+        "created_at": "2024-03-21T06:34:54.000000Z",
+        "updated_at": "2024-03-21T06:34:54.000000Z"
+      }
+    },
+    {
+      "id": 8,
+      "name": "sahkgdjkac",
+      "email": "s@gmail.com",
+      "email_verified_at": null,
+      "has_admin_access": 0,
+      "admin_id": 4,
+      "created_at": "2024-03-21T06:35:24.000000Z",
+      "updated_at": "2024-03-21T06:35:24.000000Z",
+      "children": [],
+      "profile": {
+        "id": 3,
+        "type": "Sub Admin",
+        "fb_link": "asdasdas",
+        "msngr_link": "asdasdas",
+        "wa_link": "sdasdasdfwer",
+        "tg_link": "asdasdas",
+        "phone": "+121231231231",
+        "user_id": 8,
+        "created_at": "2024-03-21T06:35:24.000000Z",
+        "updated_at": "2024-03-21T06:35:24.000000Z"
+      }
+    },
+    {
+      "id": 9,
+      "name": "aaa",
+      "email": "a@gmail.com",
+      "email_verified_at": null,
+      "has_admin_access": 0,
+      "admin_id": 6,
+      "created_at": "2024-03-21T07:10:01.000000Z",
+      "updated_at": "2024-03-21T07:10:01.000000Z",
+      "children": [],
+      "profile": {
+        "id": 4,
+        "type": "Agent",
+        "fb_link": "asdasdas",
+        "msngr_link": "asdasdas",
+        "wa_link": "sdasdasdfwer",
+        "tg_link": "asdasdas",
+        "phone": "+121231231231",
+        "user_id": 9,
+        "created_at": "2024-03-21T07:10:01.000000Z",
+        "updated_at": "2024-03-21T07:10:01.000000Z"
+      }
+    }
+  ]
+}

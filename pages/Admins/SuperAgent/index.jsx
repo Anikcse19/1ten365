@@ -1,38 +1,65 @@
 import Logo from "@/components/shared/Header/Logo/Logo";
 import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
+import base_url from "@/utils/Url";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useState } from "react";
 import logo from "../../../public/images/1ten365logo.png"
 
 
 
+const ls=typeof window != "undefined" ? window.localStorage : null
+const token=ls?.getItem('token')
 const SuperAgent = () => {
-    const [adminType, setAdminType] = useState("");
-    const [adminId, setAdminId] = useState("");
-    const [searchedResult, setSearchedResult] = useState({});
+  const [adminType, setAdminType] = useState("");
+  const [adminId, setAdminId] = useState("");
+  const [searchedResult, setSearchedResult] = useState({});
+  const [types,setTypes]=useState([])
+  const [subAdmins,setSubAdmins]=useState([])
 
-    // useEffect(()=>{
-  //   fetch(`${API_BASE_URL}/admins/types`,{
-  //     method:'POST',
-  //     headers:{
-  //       'Accept':'application/json',
-  //       'Content-type':'application/json',
-  //       Authrization:`Bearer `
-  //     }
-  //   }).then(res=>res.json()).then(data=>console.log(data))
-  // },[])
+  const router=useRouter()
+
+    useEffect(()=>{
+
+      fetch(`${base_url}/admins/types`,{
+        method:'GET',
+        headers:{
+          'Accept':'application/json',
+          // 'Content-type':'application/json',
+          'Authorization':`Bearer ${token}`
+        }
+      }).then(res=>res.json()).then(data=>{
+        setTypes(data.types)
+        setAdminType(types[2])
+      })
+  
+      fetch(`${base_url}/admins?type=সাব এডমিন`,{
+        method:'GET',
+        headers:{
+          'Accept':'application/json',
+          'Content-type':'application/json',
+          'Authorization':`Bearer ${token}`
+        }
+      }).then(res=>res.json()).then(data=>setSubAdmins(data.admins))
+    },[])
+
+    console.log(subAdmins);
 
 
     const handleAdminSearch = () => {
+      console.log(adminType,adminId);
         axios
-          .get(`${API_BASE_URL}/admins/${adminId}?type=${adminType}`, {
+          .get(`${base_url}/admins/${adminId}?type=${adminType}`, {
             headers: {
               Accept: "application/json",
               Authorization: `Bearer ${token}`,
             },
           })
           .then((res) => {
+            console.log(res?.data);
             setSearchedResult(res.data);
           });
       };
@@ -65,14 +92,15 @@ const SuperAgent = () => {
               এজেন্ট টাইপ
             </label>
             <select
+            value={adminType}
               onChange={(e) => setAdminType(e.target.value)}
               className="outline-none border-2 border-black px-2 py-1 w-[220px]"
             >
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
+              {
+              types.slice(1,5)?.map(type=>(
+                <option value={type}>{type}</option>
+              ))
+             }
             </select>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-5">
@@ -80,6 +108,7 @@ const SuperAgent = () => {
               এজেন্ট আইডি
             </label>
             <input
+            value={adminId}
               onChange={(e) => setAdminId(e.target.value)}
               className="outline-none border-2 border-black px-2 py-1 w-[220px]"
               type="text"

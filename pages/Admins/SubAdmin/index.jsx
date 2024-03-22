@@ -1,38 +1,65 @@
 import Logo from "@/components/shared/Header/Logo/Logo";
 import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
+import base_url from "@/utils/Url";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { IoLogoWhatsapp } from "react-icons/io";
 import Image from "next/image";
 import { useState } from "react";
 import logo from "../../../public/images/1ten365logo.png"
 
 
-
+const ls=typeof window != "undefined" ? window.localStorage : null
+const token=ls?.getItem('token')
 const SubAdminPage = () => {
-    const [adminType, setAdminType] = useState("");
-    const [adminId, setAdminId] = useState("");
-    const [searchedResult, setSearchedResult] = useState({});
+  const [adminType, setAdminType] = useState("");
+  const [adminId, setAdminId] = useState("");
+  const [searchedResult, setSearchedResult] = useState({});
+  const [types,setTypes]=useState([])
+  const [admins,setAdmins]=useState([])
 
-    // useEffect(()=>{
-  //   fetch(`${API_BASE_URL}/admins/types`,{
-  //     method:'POST',
-  //     headers:{
-  //       'Accept':'application/json',
-  //       'Content-type':'application/json',
-  //       Authrization:`Bearer `
-  //     }
-  //   }).then(res=>res.json()).then(data=>console.log(data))
-  // },[])
+  const router=useRouter()
+
+    useEffect(()=>{
+
+      fetch(`${base_url}/admins/types`,{
+        method:'GET',
+        headers:{
+          'Accept':'application/json',
+          // 'Content-type':'application/json',
+          'Authorization':`Bearer ${token}`
+        }
+      }).then(res=>res.json()).then(data=>{
+        setTypes(data.types)
+        setAdminType(types[2])
+      })
+  
+      fetch(`${base_url}/admins?type=এডমিন`,{
+        method:'GET',
+        headers:{
+          'Accept':'application/json',
+          'Content-type':'application/json',
+          'Authorization':`Bearer ${token}`
+        }
+      }).then(res=>res.json()).then(data=>setAdmins(data.admins))
+    },[])
+
+    console.log(admins);
 
 
     const handleAdminSearch = () => {
+      console.log(adminType,adminId);
         axios
-          .get(`${API_BASE_URL}/admins/${adminId}?type=${adminType}`, {
+          .get(`${base_url}/admins/${adminId}?type=${adminType}`, {
             headers: {
               Accept: "application/json",
               Authorization: `Bearer ${token}`,
             },
           })
           .then((res) => {
+            console.log(res?.data);
             setSearchedResult(res.data);
           });
       };
@@ -65,16 +92,17 @@ const SubAdminPage = () => {
               এজেন্ট টাইপ
             </label>
             <select
+            value={adminType}
               onChange={(e) => setAdminType(e.target.value)}
               name=""
               id=""
               className="outline-none border-2 border-black px-2 py-1 w-[220px]"
             >
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
+              {
+              types.slice(1,5)?.map(type=>(
+                <option value={type}>{type}</option>
+              ))
+             }
             </select>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-5">
@@ -82,6 +110,7 @@ const SubAdminPage = () => {
               এজেন্ট আইডি
             </label>
             <input
+            value={adminId}
               onChange={(e) => setAdminId(e.target.value)}
               className="outline-none border-2 border-black px-2 py-1 w-[220px]"
               type="text"
@@ -186,7 +215,67 @@ const SubAdminPage = () => {
         {/* user alert end*/}
 
         {/* admin table start */}
-        {}
+        {
+          admins?.map(admin=>(
+            <div className="w-[80%] mx-auto bg-white   p-5 my-10" key={admin?.id}>
+              <div className="text-center">
+              <span className="text-center text-base md:text-xl">এডমিন <p className="text-lg md:text-2xl font-bold inline">{admin?.name}</p> এর অধীনে সর্বমোট সাব-এডমিন আছে {admin?.children?.length} জন</span>
+              </div>
+              <div className="w-full relative overflow-x-auto overflow-y-auto max-w-screen  max-h-screen mt-5 border-2 border-orange-700 ">
+          <table className="w-full">
+            <thead className="sticky top-0 text-base bg-gray-400 w-full">
+              <tr className="border-b border-orange-700 ">
+                <th scope="col" className="px-10 py-3">
+                  ID NO
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  AGENT
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  APP
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  PHONE NUMBER
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  COMPALIN
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+             {
+                admin?.children?.map(adminC=>{   
+                                 
+                  return (
+                    (
+                      <tr key={adminC.id} className="border-b border-black text-[14px]">
+                        <td className="px-3 py-3 text-center">{adminC?.id}</td>
+                        <td className="px-3 py-3 text-center">
+                          {adminC?.profile?.type}
+                        </td>
+                        <td className="px-3 py-3 text-center flex justify-center items-center ">
+                          {/* {adminC?.profile?.wa_link} */}
+                          <IoLogoWhatsapp onClick={()=>{
+                            router.push(`https://wa.me/${adminC?.profile?.wa_link}`)
+                          }} className="text-green-600 text-lg font-bold cursor-pointer"/>
+                        </td>
+                        <td className="px-3 py-3 text-center">
+                         {adminC?.profile?.phone}
+                        </td>
+                        <td className="px-3 py-3 font-bold text-center cursor-pointer hover:underline hover:text-blue-800">
+                        অভিযোগ
+                        </td>                        
+                      </tr>
+                    )
+                  )
+                })
+              }
+            </tbody>
+          </table>
+        </div>
+            </div>
+          ))
+        }
         {/* admin table end */}
       </div>
     </div>

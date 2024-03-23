@@ -29,6 +29,7 @@ export default function Home() {
   console.log(quickAgent);
   return (
     <div>
+      <>
       <div className="hidden lg:block">
         <Logo />
         <Navbar />
@@ -37,6 +38,8 @@ export default function Home() {
         <Image width={120} height={90} src={logo} alt="" />
         <MobileNav />
       </div>
+      </>
+      
 
       {/* quick master agent number */}
       <div className="w-full my-10 ">

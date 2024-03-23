@@ -1,10 +1,13 @@
 import Logo from "@/components/shared/Header/Logo/Logo";
+import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
 import base_url from "@/utils/Url";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
+import Image from "next/image";
+import logo from "../../../public/images/1ten365logo.png"
 
 
 const ls=typeof window != "undefined" ? window.localStorage : null
@@ -61,19 +64,29 @@ const SubAdminPage = () => {
       };
   return (
     <div>
-      <Logo></Logo>
-      <Navbar />
+
+      <>
+      <div className="hidden lg:block">
+        <Logo />
+        <Navbar />
+      </div>
+      <div className="flex lg:hidden justify-between items-center shadow-md px-4 py-2">
+        <Image width={120} height={90} src={logo} alt="" />
+        <MobileNav />
+      </div>
+      </>
+      
       {/*Site admin config  start*/}
       <div className="w-full  mt-12">
         {/* agent/admin search start */}
-        <div className="w-[60%] mx-auto bg-white flex flex-col items-center justify-center gap-6 py-5">
+        <div className="w-[80%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
           <div>
-            <p className="text-base lg:text-xl lg:font-bold">
+            <p className="text-base lg:text-xl font-semibold lg:font-bold">
               এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ
             </p>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-6">
             <label htmlFor="" className="text-base lg:text-lg">
               এজেন্ট টাইপ
             </label>
@@ -85,21 +98,20 @@ const SubAdminPage = () => {
               className="outline-none border-2 border-black px-2 py-1 w-[220px]"
             >
               {
-              types.slice(1,5)?.map(type=>(
+              types?.slice(1,5)?.map(type=>(
                 <option value={type}>{type}</option>
               ))
              }
             </select>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-5">
             <label htmlFor="" className="text-base lg:text-lg">
-              {" "}
               এজেন্ট আইডি
             </label>
             <input
             value={adminId}
               onChange={(e) => setAdminId(e.target.value)}
-              className="outline-none border-2 border-black px-2 py-1"
+              className="outline-none border-2 border-black px-2 py-1 w-[220px]"
               type="text"
               name=""
               id=""

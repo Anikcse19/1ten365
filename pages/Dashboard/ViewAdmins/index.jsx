@@ -59,13 +59,13 @@ export default function ViewAdmins() {
           <div className="mt-3 md:mt-0 flex items-center gap-x-5">
             <Link
               href="/Dashboard/AddAdmin"
-              className=" px-4 py-2 text-white duration-150 font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm"
+              className=" px-2 lg:px-4 py-1 lg:py-2 text-white duration-150 lg:font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm"
             >
               +Add Admins
             </Link>
             <Link
               href="/Dashboard"
-              className="px-4 py-2 text-white duration-150 font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm flex items-center gap-x-1"
+              className="px-2 lg:px-4 py-1 lg:py-2 text-white duration-150 font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm flex items-center gap-x-1"
             >
               <TiArrowBackOutline /> Dashboard
             </Link>

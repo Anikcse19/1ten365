@@ -3,11 +3,11 @@ import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
 import base_url from "@/utils/Url";
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
-import Image from "next/image";
-import logo from "../../../public/images/1ten365logo.png"
+import logo from "../../../public/images/1ten365logo.png";
 
 
 const ls=typeof window != "undefined" ? window.localStorage : null
@@ -42,7 +42,10 @@ const SubAdminPage = () => {
           'Content-type':'application/json',
           'Authorization':`Bearer ${token}`
         }
-      }).then(res=>res.json()).then(data=>setAdmins(data.admins))
+      }).then(res=>res.json()).then(data=>{
+        console.log(data.admins,'www');
+        setAdmins(data.admins)
+      })
     },[])
 
     console.log(admins);

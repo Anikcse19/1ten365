@@ -17,8 +17,7 @@ const Navbar = () => {
             হোম
           </Link>
           <Link
-            className="text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded"
-            href=""
+            className={`text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded ${pathname=='/Admins/CustomerService' && "bg-gray-900 text-white"}`} href="/Admins/CustomerService"
           >
             কাস্টমার সার্ভিস
           </Link>

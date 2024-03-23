@@ -61,14 +61,16 @@ export default function Home() {
                     <span className="text-base md:text-2xl font-bold">
                       Agent ID
                     </span>
-                    <span className="text-[#FFA500] font-bold">1211</span>
+                    <span className="text-[#FFA500] font-bold">{quickAgent?.input_id}</span>
                   </div>
                   {/* what's app number */}
                   <div className="flex justify-between items-center">
                     <span className="cursor-pointer">
-                      <IoLogoWhatsapp className="text-xl md:text-4xl text-[#00F046]" />
+                      <IoLogoWhatsapp onClick={()=>{
+                        window.open(`https://wa.me/${quickAgent?.profile?.wa_link ? quickAgent?.profile?.wa_link : quickAgent?.profile?.phone},'_blank'`)
+                      }} className="text-xl md:text-4xl text-[#00F046]" />
                     </span>
-                    <span className="text-[#FFA500] font-bold">+212281279</span>
+                    <span className="text-[#FFA500] font-bold">{quickAgent?.profile?.wa_link ? quickAgent?.profile?.wa_link : quickAgent?.profile?.phone}</span>
                   </div>
                 </div>
               </div>

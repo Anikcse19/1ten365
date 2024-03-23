@@ -1,14 +1,14 @@
 import dynamic from "next/dynamic"; // Import dynamic from next/dynamic
-import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 import "react-modern-drawer/dist/index.css";
 import logo from "../../../../public/images/1ten365logo.png";
 
 // Import Drawer dynamically to disable SSR
 const Drawer = dynamic(() => import("react-modern-drawer"), { ssr: false });
-import { GiHamburgerMenu } from "react-icons/gi";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,8 +21,8 @@ const MobileNav = () => {
 
   const menus = [
     { title: "হোম", url: "/" },
-    { title: "কাস্টমার সার্ভিস", url: "" },
-    { title: "সাইট এডমিন", url: "/Admins/SiteAdmin" },
+    { title: "কাস্টমার সার্ভিস", url: "/Admins/CustomerService" },
+    // { title: "সাইট এডমিন", url: "/Admins/SiteAdmin" },
     { title: "এডমিন", url: "/Admins/Admin" },
     { title: "সাব-এডমিন", url: "/Admins/SubAdmin" },
     { title: "সুপার-এজেন্ট", url: "/Admins/SuperAgent" },

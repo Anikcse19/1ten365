@@ -1,10 +1,10 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { TiArrowBackOutline } from "react-icons/ti";
 
 const AddAdmin = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const [types, setTypes] = useState();
   const [selectedType, setSelectedType] = useState("");
   console.log(selectedType);
@@ -51,7 +51,13 @@ const AddAdmin = () => {
       type: selectedType,
     };
 
-    console.log(infos);
+    console.log(infos.type);
+
+    if(infos.type=='এডমিন'){
+      delete infos.admin_id
+    }
+
+    console.log(infos,'pore');
 
     fetch("https://test.aglist1ten365.com/api/admins/create", {
       method: "POST",
@@ -65,6 +71,7 @@ const AddAdmin = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("Data posted successfully:", data);
+        reset()
         // Handle success response here
       })
       .catch((error) => {
@@ -141,7 +148,7 @@ const AddAdmin = () => {
               <input
                 type="text"
                 placeholder="what's app link"
-                {...register("whats_app_link")}
+                {...register("wa_link")}
                 className={inputFieldSTyle}
               />
             </div>

@@ -22,6 +22,8 @@ const AdminPage = () => {
 
     const router=useRouter()
 
+    console.log('id',adminId,'ty',adminType);
+
     useEffect(()=>{
 
     fetch(`${base_url}/admins/types`,{
@@ -33,7 +35,7 @@ const AdminPage = () => {
       }
     }).then(res=>res.json()).then(data=>{
       setTypes(data.types)
-      setAdminType(types[1])
+      
     })
 
     fetch(`${base_url}/admins?type=এডমিন`,{
@@ -97,6 +99,7 @@ console.log(searchedResult,'s');
               id=""
               className="outline-none border-2 border-black px-2 py-1 w-[220px]"
             >
+              <option value="">Select</option>
              {
               types?.slice(1,5)?.map(type=>(
                 <option value={type}>{type}</option>
@@ -131,27 +134,30 @@ console.log(searchedResult,'s');
             <div className="w-[80%] mx-auto bg-white  p-5 my-10">
           {/* show search admin details start*/}
           <p className="text-center text-base lg:text-lg font-bold mb-3">
-            উনি 1ten365 এর একজন অনলাইন সাব এডমিন নাম্বার 12
+            উনি 1ten365 এর একজন অনলাইন {searchedResult?.profile?.type} নাম্বার {searchedResult?.input_id}
           </p>
           <div className=" w-full border border-black flex flex-col p-2">
             {/* 1st row start */}
             <div className="w-full flex border border-black py-3 bg-blue-300">
               <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
-                <p className="text-black">উনার সাব এডমিন আইডিঃ </p>
+                <p className="text-black">উনার এডমিন আইডিঃ </p>
               </div>
               <div className=" w-[50%] h-full flex justify-center items-center text-white">
-                <p className="text-black">12</p>
+                <p className="text-black">{searchedResult?.input_id}</p>
               </div>
             </div>
             {/* 1st row end */}
 
             {/* 2nd row start */}
-            <div className=" w-full flex border border-black py-3 bg-blue-400">
+            <div className=" w-full flex border border-black py-3 bg-blue-100">
             <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                 <p className="text-black">উনার হোয়াটসঅ্যাপ নাম্বারঃ</p>
               </div>
-              <div className=" w-[50%] h-full flex justify-center items-center text-white">
-                <p className="text-black">+90912345</p>
+              <div className=" w-[50%] h-full flex gap-3 justify-center items-center text-white">
+              <IoLogoWhatsapp onClick={()=>{
+                window.open(`https://wa.me/${searchedResult?.profile?.wa_link}`)
+              }} className="text-base md:text-2xl text-green-500 font-bold cursor-pointer"/>
+                <p className="text-black">{searchedResult?.profile?.phone}</p>
               </div>
             </div>
             {/* 2nd row end */}
@@ -160,7 +166,10 @@ console.log(searchedResult,'s');
            {/* show search admin details end*/}
 
             {/* show parent admin details start*/}
-           <p className="text-center text-base lg:text-lg font-bold m-3">
+           {
+            searchedResult?.super?.id && (
+              <div>
+                <p className="text-center text-base lg:text-lg font-bold m-3">
            এই 1ten365 এর অনলাইন সাব এডমিন এর আপলাইনের তথ্যঃ
           </p>
           <p className="text-center text-base lg:text-lg  mb-3">
@@ -184,11 +193,15 @@ console.log(searchedResult,'s');
                 <p className="text-black">উনার এডমিন এর হোয়াটসঅ্যাপ নাম্বারঃ</p>
               </div>
               <div className=" w-[50%] h-full flex justify-center items-center text-white">
+                
                 <p className="text-black">+90912345</p>
               </div>
             </div>
             {/* 2nd row end */}
           </div>
+              </div>
+            )
+           }
           {/* show parent admin details end*/}
           
 
@@ -215,9 +228,8 @@ console.log(searchedResult,'s');
         {/* user alert end*/}
 
         {/* admin table start */}
-        {
-          siteAdmins?.map(siteAdmin=>(
-            <div className="w-[80%] mx-auto bg-white   p-5 my-10" key={siteAdmin?.id}>
+       
+            <div className="w-[80%] mx-auto bg-white   p-5 my-10" >
               <div className="text-center">
               <span className="text-center text-base md:text-xl">সর্বমোট এডমিন আছে {siteAdmins?.length} জন</span>
               </div>
@@ -227,6 +239,9 @@ console.log(searchedResult,'s');
               <tr className="border-b border-orange-700 ">
                 <th scope="col" className="px-10 py-3">
                   ID NO
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  Name
                 </th>
                 <th scope="col" className="px-10 py-3">
                   AGENT
@@ -250,6 +265,9 @@ console.log(searchedResult,'s');
                     (
                       <tr key={admin.id} className="border-b border-black text-[14px]">
                         <td className="px-3 py-3 text-center">{admin?.input_id}</td>
+                        <td className="px-3 py-3 text-center">
+                          {admin?.name}
+                        </td>
                         <td className="px-3 py-3 text-center">
                           {admin?.profile?.type}
                         </td>
@@ -275,8 +293,7 @@ console.log(searchedResult,'s');
         </div>
 
             </div>
-          ))
-        }
+         
         {/* admin table end */}
       </div>
     </div>

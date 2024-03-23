@@ -59,7 +59,7 @@ const SubAdminPage = () => {
           })
           .then((res) => {
             console.log(res?.data);
-            setSearchedResult(res.data);
+            setSearchedResult(res?.data?.admin);
           });
       };
   return (
@@ -129,30 +129,35 @@ const SubAdminPage = () => {
         {/* agent/admin search end */}
 
         {/* show search result start */}
-        <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+        {
+          searchedResult?.id && (
+            <div className="w-[80%] mx-auto bg-white  p-5 my-10">
           {/* show search admin details start*/}
           <p className="text-center text-base lg:text-lg font-bold mb-3">
-            উনি 1ten365 এর একজন অনলাইন সাব এডমিন নাম্বার 12
+            উনি 1ten365 এর একজন অনলাইন {searchedResult?.profile?.type} নাম্বার {searchedResult?.input_id}
           </p>
           <div className=" w-full border border-black flex flex-col p-2">
             {/* 1st row start */}
             <div className="w-full flex border border-black py-3 bg-blue-300">
               <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
-                <p className="text-black">উনার সাব এডমিন আইডিঃ </p>
+                <p className="text-black">উনার এডমিন আইডিঃ </p>
               </div>
               <div className=" w-[50%] h-full flex justify-center items-center text-white">
-                <p className="text-black">12</p>
+                <p className="text-black">{searchedResult?.input_id}</p>
               </div>
             </div>
             {/* 1st row end */}
 
             {/* 2nd row start */}
-            <div className=" w-full flex border border-black py-3 bg-blue-400">
+            <div className=" w-full flex border border-black py-3 bg-blue-100">
             <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                 <p className="text-black">উনার হোয়াটসঅ্যাপ নাম্বারঃ</p>
               </div>
-              <div className=" w-[50%] h-full flex justify-center items-center text-white">
-                <p className="text-black">+90912345</p>
+              <div className=" w-[50%] h-full flex gap-3 justify-center items-center text-white">
+              <IoLogoWhatsapp onClick={()=>{
+                window.open(`https://wa.me/${searchedResult?.profile?.wa_link},'_blank'`)
+              }} className="text-base md:text-2xl text-green-500 font-bold cursor-pointer"/>
+                <p className="text-black">{searchedResult?.profile?.phone}</p>
               </div>
             </div>
             {/* 2nd row end */}
@@ -161,7 +166,10 @@ const SubAdminPage = () => {
            {/* show search admin details end*/}
 
             {/* show parent admin details start*/}
-           <p className="text-center text-base lg:text-lg font-bold m-3">
+           {
+            searchedResult?.super?.id && (
+              <div>
+                <p className="text-center text-base lg:text-lg font-bold m-3">
            এই 1ten365 এর অনলাইন সাব এডমিন এর আপলাইনের তথ্যঃ
           </p>
           <p className="text-center text-base lg:text-lg  mb-3">
@@ -180,20 +188,28 @@ const SubAdminPage = () => {
             {/* 1st row end */}
 
             {/* 2nd row start */}
-            <div className=" w-full flex border border-black py-3 bg-blue-400">
+            <div className=" w-full flex border border-black py-3 bg-blue-100">
             <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                 <p className="text-black">উনার এডমিন এর হোয়াটসঅ্যাপ নাম্বারঃ</p>
               </div>
-              <div className=" w-[50%] h-full flex justify-center items-center text-white">
+              <div className=" w-[50%] h-full flex gap-3 justify-center items-center text-white">
+              <IoLogoWhatsapp onClick={()=>{
+                window.open(`https://wa.me/${searchedResult?.profile?.wa_link},'_blank'`)
+              }} className="text-base md:text-2xl text-green-500 font-bold cursor-pointer"/>
                 <p className="text-black">+90912345</p>
               </div>
             </div>
             {/* 2nd row end */}
           </div>
+              </div>
+            )
+           }
           {/* show parent admin details end*/}
           
 
         </div>
+          )
+        }
 
         {/* show search result end */}
 
@@ -216,7 +232,7 @@ const SubAdminPage = () => {
         {/* admin table start */}
         {
           admins?.map(admin=>(
-            <div className="w-[80%] mx-auto bg-white   p-5 my-10" key={admin?.id}>
+            <div className="w-[80%] mx-auto bg-white   p-5 my-10" key={admin?.input_id}>
               <div className="text-center">
               <span className="text-center text-base md:text-xl">এডমিন <p className="text-lg md:text-2xl font-bold inline">{admin?.name}</p> এর অধীনে সর্বমোট সাব-এডমিন আছে {admin?.children?.length} জন</span>
               </div>
@@ -226,6 +242,9 @@ const SubAdminPage = () => {
               <tr className="border-b border-orange-700 ">
                 <th scope="col" className="px-10 py-3">
                   ID NO
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  NAME
                 </th>
                 <th scope="col" className="px-10 py-3">
                   AGENT
@@ -248,14 +267,17 @@ const SubAdminPage = () => {
                   return (
                     (
                       <tr key={adminC.id} className="border-b border-black text-[14px]">
-                        <td className="px-3 py-3 text-center">{adminC?.id}</td>
+                        <td className="px-3 py-3 text-center">{adminC?.input_id}</td>
+                        <td className="px-3 py-3 text-center">
+                          {adminC?.name}
+                        </td>
                         <td className="px-3 py-3 text-center">
                           {adminC?.profile?.type}
                         </td>
                         <td className="px-3 py-3 text-center flex justify-center items-center ">
                           {/* {adminC?.profile?.wa_link} */}
                           <IoLogoWhatsapp onClick={()=>{
-                            router.push(`https://wa.me/${adminC?.profile?.wa_link}`)
+                            window.open(`https://wa.me/${adminC?.profile?.wa_link},'_blank`)
                           }} className="text-green-600 text-lg font-bold cursor-pointer"/>
                         </td>
                         <td className="px-3 py-3 text-center">

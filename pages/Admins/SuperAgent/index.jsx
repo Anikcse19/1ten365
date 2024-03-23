@@ -3,12 +3,11 @@ import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
 import Navbar from "@/components/shared/Header/Navbar/Navbar";
 import base_url from "@/utils/Url";
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import logo from "../../../public/images/1ten365logo.png"
-
-
+import { IoLogoWhatsapp } from "react-icons/io";
+import logo from "../../../public/images/1ten365logo.png";
 
 const ls=typeof window != "undefined" ? window.localStorage : null
 const token=ls?.getItem('token')
@@ -18,6 +17,7 @@ const SuperAgent = () => {
   const [searchedResult, setSearchedResult] = useState({});
   const [types,setTypes]=useState([])
   const [subAdmins,setSubAdmins]=useState([])
+  const [complain,setComplain]=useState([])
 
   const router=useRouter()
 
@@ -59,9 +59,11 @@ const SuperAgent = () => {
           })
           .then((res) => {
             console.log(res?.data);
-            setSearchedResult(res.data);
+            setSearchedResult(res?.data?.admin);
           });
       };
+
+      console.log('complain',complain);
   return (
     <div>
       <>
@@ -78,6 +80,8 @@ const SuperAgent = () => {
 
       {/*Site admin config  start*/}
       <div className="w-full  mt-12">
+
+
         {/* agent/admin search start */}
         <div className="w-[80%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
           <div>
@@ -124,31 +128,37 @@ const SuperAgent = () => {
         </div>
         {/* agent/admin search end */}
 
+
+
         {/* show search result start */}
-        <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+        {searchedResult?.id && (
+            <div className="w-[80%] mx-auto bg-white  p-5 my-10">
           {/* show search admin details start*/}
           <p className="text-center text-base lg:text-lg font-bold mb-3">
-            উনি 1ten365 এর একজন অনলাইন সাব এডমিন নাম্বার 12
+            উনি 1ten365 এর একজন অনলাইন {searchedResult?.profile?.type} নাম্বার {searchedResult?.input_id}
           </p>
           <div className=" w-full border border-black flex flex-col p-2">
             {/* 1st row start */}
             <div className="w-full flex border border-black py-3 bg-blue-300">
               <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
-                <p className="text-black">উনার সাব এডমিন আইডিঃ </p>
+                <p className="text-black">উনার এডমিন আইডিঃ </p>
               </div>
               <div className=" w-[50%] h-full flex justify-center items-center text-white">
-                <p className="text-black">12</p>
+                <p className="text-black">{searchedResult?.input_id}</p>
               </div>
             </div>
             {/* 1st row end */}
 
             {/* 2nd row start */}
-            <div className=" w-full flex border border-black py-3 bg-blue-400">
+            <div className=" w-full flex border border-black py-3 bg-blue-100">
             <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                 <p className="text-black">উনার হোয়াটসঅ্যাপ নাম্বারঃ</p>
               </div>
-              <div className=" w-[50%] h-full flex justify-center items-center text-white">
-                <p className="text-black">+90912345</p>
+              <div className=" w-[50%] h-full flex gap-3 justify-center items-center text-white">
+              <IoLogoWhatsapp onClick={()=>{
+                window.open(`https://wa.me/${searchedResult?.profile?.wa_link},'_blank'`)
+              }} className="text-base md:text-2xl text-green-500 font-bold cursor-pointer"/>
+                <p className="text-black">{searchedResult?.profile?.phone}</p>
               </div>
             </div>
             {/* 2nd row end */}
@@ -157,11 +167,14 @@ const SuperAgent = () => {
            {/* show search admin details end*/}
 
             {/* show parent admin details start*/}
-           <p className="text-center text-base lg:text-lg font-bold m-3">
+           {
+            searchedResult?.super?.id && (
+              <div>
+                <p className="text-center text-base lg:text-lg font-bold m-3">
            এই 1ten365 এর অনলাইন সাব এডমিন এর আপলাইনের তথ্যঃ
           </p>
           <p className="text-center text-base lg:text-lg  mb-3">
-          উপরের সাব এডমিন এর বিরুদ্ধে অভিযোগ করতে হলে নিচের যে কোন নাম্বার এ হোয়াটসঅ্যাপ এ মেসেজ দিলেই হবে
+          উপরের  সুপার এজেন্ট এর এর বিরুদ্ধে অভিযোগ করতে হলে নিচের যে কোন নাম্বার এ হোয়াটসঅ্যাপ এ মেসেজ দিলেই হবে
           </p>
           <div className=" w-full border border-black flex flex-col p-2">
             {/* 1st row start */}
@@ -176,22 +189,36 @@ const SuperAgent = () => {
             {/* 1st row end */}
 
             {/* 2nd row start */}
-            <div className=" w-full flex border border-black py-3 bg-blue-400">
+            <div className=" w-full flex border border-black py-3 bg-blue-100">
             <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                 <p className="text-black">উনার এডমিন এর হোয়াটসঅ্যাপ নাম্বারঃ</p>
               </div>
-              <div className=" w-[50%] h-full flex justify-center items-center text-white">
+              <div className=" w-[50%] h-full flex gap-3 justify-center items-center text-white">
+              <IoLogoWhatsapp onClick={()=>{
+                window.open(`https://wa.me/${searchedResult?.profile?.wa_link},'_blank'`)
+              }} className="text-base md:text-2xl text-green-500 font-bold cursor-pointer"/>
                 <p className="text-black">+90912345</p>
               </div>
             </div>
             {/* 2nd row end */}
           </div>
+              </div>
+            )
+           }
           {/* show parent admin details end*/}
           
 
         </div>
-
+          )}
         {/* show search result end */}
+
+        {/* show complain start */}
+        <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+        <p className="text-center text-base lg:text-lg font-bold mb-3">
+            উনি 1ten365 এর একজন অনলাইন {complain?.type} নাম্বার {complain?.input_id}
+          </p>
+        </div>
+        {/* show complain end */}
 
         {/* user alert start*/}
         <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
@@ -210,7 +237,82 @@ const SuperAgent = () => {
         {/* user alert end*/}
 
         {/* admin table start */}
-        {}
+        {
+          subAdmins?.map(admin=>(
+            <div className="w-[80%] mx-auto bg-white   p-5 my-10" key={admin?.input_id}>
+              <div className="text-center">
+                {
+                  admin?.super?.id ? (<span className="text-center text-base md:text-xl">এডমিন  <p className="text-lg md:text-2xl font-bold inline">{admin?.super?.name}</p> এর অধীনে  সাব-এডমিন <p className="text-lg md:text-2xl font-bold inline">{admin?.name}</p> এর অধীনে সর্বমোট সুপার এজেন্ট আছে {admin?.children?.length} জন</span>) :(
+                    <span className="text-center text-base md:text-xl">সাব-এডমিন <p className="text-lg md:text-2xl font-bold inline">{admin?.name}</p> এর অধীনে সর্বমোট সুপার এজেন্ট আছে {admin?.children?.length} জন</span>
+                  )
+                }
+              
+              </div>
+              <div className="w-full relative overflow-x-auto overflow-y-auto max-w-screen  max-h-screen mt-5 border-2 border-orange-700 ">
+          <table className="w-full">
+            <thead className="sticky top-0 text-base bg-gray-400 w-full">
+              <tr className="border-b border-orange-700 ">
+                <th scope="col" className="px-10 py-3">
+                  ID NO
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  NAME
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  AGENT
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  APP
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  PHONE NUMBER
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  COMPALIN
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+             {
+              
+                admin?.children?.map(adminC=>{   
+                  console.log(admin,'admin')
+                  return (
+                    (
+                      <tr key={adminC.id} className="border-b border-black text-[14px]">
+                        <td className="px-3 py-3 text-center">{adminC?.input_id}</td>
+                        <td className="px-3 py-3 text-center">
+                          {adminC?.name}
+                        </td>
+                        <td className="px-3 py-3 text-center">
+                          {adminC?.profile?.type}
+                        </td>
+                        <td className="px-3 py-3 text-center flex justify-center items-center ">
+                          {/* {adminC?.profile?.wa_link} */}
+                          <IoLogoWhatsapp onClick={()=>{
+                            window.open(`https://wa.me/${adminC?.profile?.wa_link},'_blank`)
+                          }} className="text-green-600 text-lg font-bold cursor-pointer"/>
+                        </td>
+                        <td className="px-3 py-3 text-center">
+                         {adminC?.profile?.phone}
+                        </td>
+                        <td onClick={()=>{
+                          // console.log(adminC);
+                          setComplain(adminC)
+                        }} className="px-3 py-3 font-bold text-center cursor-pointer hover:underline hover:text-blue-800">
+                        অভিযোগ
+                        </td>                        
+                      </tr>
+                    )
+                  )
+                })
+              }
+            </tbody>
+          </table>
+        </div>
+            </div>
+          ))
+        }
         {/* admin table end */}
       </div>
     </div>

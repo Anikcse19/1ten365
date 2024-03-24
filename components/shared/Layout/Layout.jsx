@@ -1,24 +1,24 @@
-import LogoSection from "@/components/home-two/NavInfo/LogoSection"
-import NavInfo from "@/components/home-two/NavInfo/NavInfo"
-import Navbar from "@/components/home-two/NavInfo/Navbar"
+import LogoSection from "@/components/home-two/NavInfo/LogoSection";
+import MobileNavbar from "@/components/home-two/NavInfo/MobileNavbar";
+import NavInfo from "@/components/home-two/NavInfo/NavInfo";
+import Navbar from "@/components/home-two/NavInfo/Navbar";
 
-
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <div className="flex flex-col">
-        {/* nav */}
-        <div>
-        <NavInfo/>
-            <LogoSection/>
-            <Navbar/>
-        </div>
-        <div>
-            {children}
-        </div>
+      <div className="hidden lg:block">
+        <NavInfo />
+        <LogoSection />
+        <Navbar />
+      </div>
 
-      
+      <div className="block lg:hidden">
+        <MobileNavbar />
+      </div>
+
+      <div>{children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

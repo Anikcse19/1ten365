@@ -9,3 +9,15 @@
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
+/* Hide increment and decrement buttons in number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Style the input field */
+input[type="number"] {
+  /* Add your custom styles here */
+}

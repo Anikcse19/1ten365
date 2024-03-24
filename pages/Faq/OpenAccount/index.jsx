@@ -1,4 +1,6 @@
 import Layout from "@/components/shared/Layout/Layout"
+import Image from "next/image"
+import openAccPoster from '../../../public/images/1ten365/how to create account.png'
 
 const OpenAccount = () => {
   return (
@@ -6,6 +8,9 @@ const OpenAccount = () => {
         <div className="bg-white w-full min-h-screen">
         <div className="p-12">
             <div className=" border border-gray-400 p-10">
+            <div className="w-[100%] mx-auto p-5 my-3">
+          <Image width={400} height={200} className="w-[100%]" src={openAccPoster} alt="poster"/>
+          </div>
                 <p className="text-base md:text-4xl font-bold text-red-600">কিভাবে একাউন্ট খুলবেন?</p>
 
                 {/* proxy links */}

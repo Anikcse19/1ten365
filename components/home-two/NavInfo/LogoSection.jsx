@@ -5,7 +5,7 @@ const LogoSection = () => {
   return (
     <div className=" border-b-2 bg-white border-red-500">
       <div className="w-[1170px] mx-auto flex items-center justify-between  py-4">
-        <Image src={logo} width={200} />
+        <Image src={logo} width={200} alt="" />
 
         <div className="w-[85px] h-[85px] h-ful flex flex-col justify-center items-center bg-gray-200">
           <h1 className="text-[45px] font-semibold leading-none">23</h1>

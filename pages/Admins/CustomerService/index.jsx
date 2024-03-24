@@ -1,8 +1,10 @@
 import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import axios from "axios";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
+import custServicePoster from '../../../public/images/1ten365/customer service.png';
 
 const ls=typeof window != "undefined" ? window.localStorage : null
 const token=ls?.getItem('token')
@@ -22,6 +24,9 @@ const CustomerServicePage = () => {
       <div className="bg-white">
     
             <div className="w-[80%] mx-auto bg-white   p-5 my-10" >
+            <div className="w-[100%]  p-5 my-10">
+          <Image width={400} height={200} className="w-[100%]" src={custServicePoster} alt="poster"/>
+          </div>
               <div className="text-center">
                <p className="text-base md:text-2xl font-bold">1ten365 CUSTOMER SERVICE LIST</p>           
               </div>

@@ -1,9 +1,11 @@
 import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
+import subAdminPoster from '../../../public/images/1ten365/sub admin list.png';
 
 
 const ls=typeof window != "undefined" ? window.localStorage : null
@@ -14,7 +16,7 @@ const SubAdminPage = () => {
   const [searchedResult, setSearchedResult] = useState({});
   const [types,setTypes]=useState([])
   const [admins,setAdmins]=useState([])
-
+  const [userNotFound,setUserNotFound]=useState(false)
   const router=useRouter()
 
     useEffect(()=>{
@@ -48,7 +50,8 @@ const SubAdminPage = () => {
 
 
     const handleAdminSearch = () => {
-     
+      setUserNotFound(false)
+      setSearchedResult({})
         axios
           .get(`${base_url}/admins/${adminId}?type=${adminType}`, {
             headers: {
@@ -57,8 +60,12 @@ const SubAdminPage = () => {
             },
           })
           .then((res) => {
-           
-            setSearchedResult(res?.data?.admin);
+            if(res?.data?.msg=='success'){
+
+              setSearchedResult(res?.data?.admin);
+          }else{
+            setUserNotFound(true)
+          }
           });
       };
   return (
@@ -118,6 +125,19 @@ const SubAdminPage = () => {
         {/* agent/admin search end */}
 
         {/* show search result start */}
+
+        {
+        userNotFound && (
+    <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+        <div className="text-center">
+            <p className="text-base md:text-2xl font-bold my-3 ">আপনি যে এজেন্ট খুজচ্ছেন তার নাম আমাদের লিষ্টে নেই</p>
+            <p className="text-base md:text-lg font-bold my-3 ">দয়া করে কাষ্টমার সার্ভিসে যোগাযোগ করুন।</p>
+            <p onClick={()=>router.push('/Admins/CustomerService')} className="text-base md:text-xl font-bold my-3 text-red-600 hover:underline cursor-pointer">কাষ্টমার সার্ভিস এর নাম্বার গুলো পেতে এই লিঙ্ক এ ক্লিক করুন</p>
+
+        </div>
+
+    </div>)
+       }
         {
           searchedResult?.id && (
             <div className="w-[80%] mx-auto bg-white  p-5 my-10">
@@ -199,8 +219,13 @@ const SubAdminPage = () => {
         </div>
           )
         }
-
         {/* show search result end */}
+
+         {/* poster start */}
+         <div className="w-[80%] mx-auto p-5 my-10">
+          <Image width={400} height={200} className="w-[100%]" src={subAdminPoster} alt="poster"/>
+          </div>
+          {/* poster end */}
 
         {/* user alert start*/}
         <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">

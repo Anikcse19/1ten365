@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 const NavInfo = () => {
   const menus = [
@@ -33,7 +32,7 @@ const NavInfo = () => {
         ))}
       </ul>
 
-      <Link href="" className="border w-[160px] text-sm font-semibold h-full flex justify-center items-center text-red-400 bg-gray-200 hover:bg-slate-300">কাস্টোমার সার্ভিস</Link>
+      <Link href="/Admins/CustomerService" className="border w-[160px] text-sm font-semibold h-full flex justify-center items-center text-red-400 bg-gray-200 hover:bg-slate-300">কাস্টোমার সার্ভিস</Link>
     </div>
   );
 };

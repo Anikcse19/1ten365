@@ -17,7 +17,7 @@ const Navbar = () => {
   ];
 
   const agentListMenus = [
-    { title: "এজেন্ট কে ভেরিফাই করুনট", url: "" },
+    { title: "এজেন্ট কে ভেরিফাই করুনট", url: "/Admins/VerifyAdmin" },
     { title: "এজেন্ট লিষ্ট", url: "/Admins/Agent" },
     { title: "সুপার এজেন্ট লিষ্ট", url: "/Admins/SuperAgent" },
     // { title: "সাব এজেন্ট লিষ্ট", url: "/Admins/" },
@@ -32,18 +32,18 @@ const Navbar = () => {
     <div className="border-b-2 bg-white border-slate-200">
       <div className="w-[76%] mx-auto">
         <div className="flex items-center gap-x- w-full h-[50px]">
-          <ul class="h-[50px] flex items-center">
+          <ul className="h-[50px] flex items-center">
 
             <li className="w-[150px] h-full font-semibold flex justify-center items-center hover:bg-slate-900 hover:text-white border-r">
               <Link href="/Admins/CustomerService">হোম পেইজ</Link>
             </li>
 
-            <div class="dropdown h-full inline-block relative w-[200px] border-r">
-              <button class="w-full border-r text-gray-700 font-semibold py-2 px-4 flex justify-center items-end">
-                <span class="mr-1">সাধারণ প্রশ্ন উত্তর</span>
+            <div className="dropdown h-full inline-block relative w-[200px] border-r">
+              <button className="w-full border-r text-gray-700 font-semibold py-2 px-4 flex justify-center items-end">
+                <span className="mr-1">সাধারণ প্রশ্ন উত্তর</span>
                 <TiArrowSortedDown className="rotate-[-45deg] text-xl -mb-1" />
               </button>
-              <ul class="dropdown-menu w-[200px] absolute hidden text-gray-700 pt-1 p-2 shadow-lg text-sm bg-gray-200 z-[1000]">
+              <ul className="dropdown-menu w-[200px] absolute hidden text-gray-700 pt-1 p-2 shadow-lg text-sm bg-gray-200 z-[1000]">
                 {generalQsns.map((item,i)=>(
                     <li key={i} className=" text-slate-900 hover:text-slate-800 p-1 hover:bg-slate-200 mt-2">
                   <Link href={item?.url}>{item?.title}</Link>
@@ -52,12 +52,12 @@ const Navbar = () => {
               </ul>
             </div>
 
-            <div class="dropdown h-full inline-block relative w-[200px] border-r">
-              <button class="w-full border-r text-gray-700 font-semibold py-2 px-4 flex justify-center items-end">
-                <span class="mr-1">এজেন্ট লিস্ট</span>
+            <div className="dropdown h-full inline-block relative w-[200px] border-r">
+              <button className="w-full border-r text-gray-700 font-semibold py-2 px-4 flex justify-center items-end">
+                <span className="mr-1">এজেন্ট লিস্ট</span>
                 <TiArrowSortedDown className="rotate-[-45deg] text-xl -mb-1" />
               </button>
-              <ul class="dropdown-menu w-[200px] absolute hidden text-gray-700 pt-1 p-2 shadow-lg text-sm bg-gray-200 z-[1000]">
+              <ul className="dropdown-menu w-[200px] absolute hidden text-gray-700 pt-1 p-2 shadow-lg text-sm bg-gray-200 z-[1000]">
                 {agentListMenus.map((item,i) => (
                   <li key={i} className=" text-slate-900 hover:text-slate-800 p-1 hover:bg-slate-200 mt-2">
                     <Link href={item.url}>{item.title}</Link>

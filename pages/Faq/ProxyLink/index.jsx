@@ -1,4 +1,6 @@
 import Layout from "@/components/shared/Layout/Layout"
+import Image from "next/image"
+import proxyPoster from '../../../public/images/1ten365/proxy link.png'
 
 const ProxyLink = () => {
     const links=[
@@ -27,7 +29,11 @@ const ProxyLink = () => {
   <Layout>
       <div className="bg-white w-full min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-12">
+       
             <div className="col-span-2 border border-gray-400 p-10">
+            <div className="w-[100%] mx-auto p-5 my-10">
+          <Image width={400} height={200} className="w-[100%]" src={proxyPoster} alt="poster"/>
+          </div>
                 <p className="text-base md:text-4xl font-bold text-red-600">ভেল্কি প্রক্সি লিঙ্ক</p>
 
                 {/* proxy links */}

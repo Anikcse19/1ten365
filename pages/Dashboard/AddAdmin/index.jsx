@@ -88,23 +88,23 @@ const AddAdmin = () => {
     "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring";
 
   return (
-    <div className=" p-10">
+    <div className=" p-10 bg-gray-700 min-h-screen">
       <div className="flex justify-end">
         <Link
           href="/Dashboard"
-          className="px-4 py-2 duration-150 rounded-md text-slate-800 font-medium border border-slate-800 md:text-sm flex items-center gap-x-1 w-[150px]"
+          className="px-4 py-2 bg-gray-800 duration-150 rounded-md text-white font-medium border border-slate-800 md:text-sm flex items-center gap-x-1 w-[150px]"
         >
           <TiArrowBackOutline /> Dashboard
         </Link>
       </div>
 
-      <section className="mt-2 p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+      <section className="w-[70%] mt-2 p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
         <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
           Add New Admin
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             {/* Name */}
             <div>
               <label className="text-gray-700 dark:text-gray-200"> Name </label>

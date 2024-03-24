@@ -1,3 +1,4 @@
+import Layout from "@/components/shared/Layout/Layout"
 
 const ProxyLink = () => {
     const links=[
@@ -23,7 +24,8 @@ const ProxyLink = () => {
         },
     ]
   return (
-    <div className="bg-white w-full min-h-screen">
+  <Layout>
+      <div className="bg-white w-full min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-12">
             <div className="col-span-2 border border-gray-400 p-10">
                 <p className="text-base md:text-4xl font-bold text-red-600">ভেল্কি প্রক্সি লিঙ্ক</p>
@@ -54,6 +56,7 @@ const ProxyLink = () => {
 
       
     </div>
+  </Layout>
   )
 }
 

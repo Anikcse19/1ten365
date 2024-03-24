@@ -26,9 +26,8 @@ export default function Home() {
     })
   },[])
 
-  console.log(quickAgent);
   return (
-    <div>
+    <div className="bg-stone-500 py-10">
       <>
       <div className="hidden lg:block">
         <Logo />
@@ -133,7 +132,7 @@ export default function Home() {
       </div>
 
       {/* clasiification of agents */}
-      <div className="w-full my-10">
+      <div className="w-full mt-10">
         <div className="w-[70%] bg-gray-600 mx-auto  rounded-md">
           {/* title */}
           <div className="w-full rounded-md bg-stone-800 p-4 flex items-center gap-3">

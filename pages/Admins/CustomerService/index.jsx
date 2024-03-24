@@ -1,12 +1,8 @@
-import Logo from "@/components/shared/Header/Logo/Logo";
-import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
-import Navbar from "@/components/shared/Header/Navbar/Navbar";
+import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import axios from "axios";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
-import logo from "../../../public/images/1ten365logo.png";
 
 const ls=typeof window != "undefined" ? window.localStorage : null
 const token=ls?.getItem('token')
@@ -22,18 +18,8 @@ const CustomerServicePage = () => {
         }).then(res=>setServices(res?.data?.types))
     },[])
   return (
-    <div>
-      <>
-        <div className="hidden lg:block">
-          <Logo />
-          <Navbar />
-        </div>
-        <div className="flex lg:hidden justify-between items-center shadow-md px-4 py-2">
-          <Image width={120} height={90} src={logo} alt="" />
-          <MobileNav />
-        </div>
-      </>
-
+    <Layout>
+      <div className="bg-white">
     
             <div className="w-[80%] mx-auto bg-white   p-5 my-10" >
               <div className="text-center">
@@ -65,7 +51,7 @@ const CustomerServicePage = () => {
              {
               
                 services?.map(service=>{   
-                //   console.log(admin,'admin')
+              
                   return (
                     (
                       <tr key={service.id} className="border-b border-black text-[14px]">
@@ -97,6 +83,7 @@ const CustomerServicePage = () => {
             </div>
          
     </div>
+    </Layout>
   )
 }
 

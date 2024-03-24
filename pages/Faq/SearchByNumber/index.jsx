@@ -1,3 +1,4 @@
+import Layout from "@/components/shared/Layout/Layout";
 import { useState } from "react";
 
 const searchByNumber = () => {
@@ -19,7 +20,8 @@ const searchByNumber = () => {
           });
       };
   return (
-    <div className="bg-white w-full min-h-screen py-12">
+   <Layout>
+     <div className="bg-white w-full min-h-screen py-12">
       <div className="w-[90%] py-12 mx-auto  flex flex-col items-center justify-center gap-3 lg:gap-6 border border-gray-500">
           <div>
             <p className="text-base lg:text-xl lg:font-bold">
@@ -47,6 +49,7 @@ const searchByNumber = () => {
           </div>
         </div>
     </div>
+   </Layout>
   )
 }
 

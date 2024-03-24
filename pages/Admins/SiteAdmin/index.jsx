@@ -1,11 +1,7 @@
-import Logo from "@/components/shared/Header/Logo/Logo";
-import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
-import Navbar from "@/components/shared/Header/Navbar/Navbar";
+import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
-import logo from "../../../public/images/1ten365logo.png";
 
 
 
@@ -16,9 +12,7 @@ const SiteAdminPage = () => {
 
   
   useEffect(()=>{
-
-
-    fetch(`${base_url}/admins?type=সাইট এডমিন`,{
+   fetch(`${base_url}/admins?type=সাইট এডমিন`,{
       method:'GET',
       headers:{
         'Accept':'application/json',
@@ -30,20 +24,11 @@ const SiteAdminPage = () => {
       setSiteAdmin(data.admins)
     })
   },[])
+
+  
   return (
-    <div>
-      <>
-      <div className="hidden lg:block">
-        <Logo />
-        <Navbar />
-      </div>
-      <div className="flex lg:hidden justify-between items-center shadow-md px-4 py-2">
-        <Image width={120} height={90} src={logo} alt="" />
-        <MobileNav />
-      </div>
-      </>
-
-
+    <Layout>
+      <div>
       {/*Site admin config  start*/}
       <div className="w-full  mt-12">
        
@@ -133,6 +118,7 @@ const SiteAdminPage = () => {
         {/* admin table end */}
       </div>
     </div>
+    </Layout>
   );
 };
 

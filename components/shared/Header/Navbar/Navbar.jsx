@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const router = useRouter();
   const { pathname } = router;
-  console.log(pathname);
+ 
   return (
     <div className="w-full">
       <div className="w-[80%] bg-gray-300 mx-auto py-1">

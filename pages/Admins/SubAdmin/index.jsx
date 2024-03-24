@@ -1,13 +1,9 @@
-import Logo from "@/components/shared/Header/Logo/Logo";
-import MobileNav from "@/components/shared/Header/Navbar/MobileNav";
-import Navbar from "@/components/shared/Header/Navbar/Navbar";
+import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import axios from "axios";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
-import logo from "../../../public/images/1ten365logo.png";
 
 
 const ls=typeof window != "undefined" ? window.localStorage : null
@@ -43,16 +39,16 @@ const SubAdminPage = () => {
           'Authorization':`Bearer ${token}`
         }
       }).then(res=>res.json()).then(data=>{
-        console.log(data.admins,'www');
+        
         setAdmins(data.admins)
       })
     },[])
 
-    console.log(admins);
+
 
 
     const handleAdminSearch = () => {
-      console.log(adminType,adminId);
+     
         axios
           .get(`${base_url}/admins/${adminId}?type=${adminType}`, {
             headers: {
@@ -61,23 +57,13 @@ const SubAdminPage = () => {
             },
           })
           .then((res) => {
-            console.log(res?.data);
+           
             setSearchedResult(res?.data?.admin);
           });
       };
   return (
-    <div>
-
-      <>
-      <div className="hidden lg:block">
-        <Logo />
-        <Navbar />
-      </div>
-      <div className="flex lg:hidden justify-between items-center shadow-md px-4 py-2">
-        <Image width={120} height={90} src={logo} alt="" />
-        <MobileNav />
-      </div>
-      </>
+   <Layout>
+     <div>
       
       {/*Site admin config  start*/}
       <div className="w-full  mt-12">
@@ -303,6 +289,7 @@ const SubAdminPage = () => {
         {/* admin table end */}
       </div>
     </div>
+   </Layout>
   )
 }
 

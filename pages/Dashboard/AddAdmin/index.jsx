@@ -3,21 +3,25 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { TiArrowBackOutline } from "react-icons/ti";
 
+
+const ls = typeof window != "undefined" ? window.localStorage : null;
+const token = ls?.getItem("token");
 const AddAdmin = () => {
   const { register, handleSubmit,reset } = useForm();
   const [types, setTypes] = useState();
   const [selectedType, setSelectedType] = useState("");
-  console.log(selectedType);
+  
 
   const filteredAdmins = types?.filter((item) => item !== "সাইট এডমিন");
-  console.log(filteredAdmins)
+
 
   useEffect(() => {
     fetch("https://test.aglist1ten365.com/api/admins/types", {
       headers: {
+        "Accept":"application/json",
         "Content-Type": "application/json",
         Authorization:
-          "Bearer 1|Ckh9lEP1wS7ycXQE5kheyIHXQ4X6uy4oZm3tANHw45479778",
+          `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
@@ -33,9 +37,10 @@ const AddAdmin = () => {
   useEffect(() => {
     fetch(`https://test.aglist1ten365.com/api/admins?type=${selectedType === "সাব এডমিন" ? "এডমিন" : selectedType === "সুপার এজেন্ট" ? "সাব এডমিন" : selectedType === "এজেন্ট" ? "সুপার এজেন্ট" : "" }`, {
       headers: {
+        "Accept":"application/json",
         "Content-Type": "application/json",
         Authorization:
-          "Bearer 1|Ckh9lEP1wS7ycXQE5kheyIHXQ4X6uy4oZm3tANHw45479778",
+        `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
@@ -44,33 +49,32 @@ const AddAdmin = () => {
   }, [selectedType]);
 
   const onSubmit = (data) => {
-    console.log(data);
+ 
 
     const infos = {
       ...data,
       type: selectedType,
     };
 
-    console.log(infos.type);
-
     if(infos.type=='এডমিন'){
       delete infos.admin_id
     }
 
-    console.log(infos,'pore');
+  
 
     fetch("https://test.aglist1ten365.com/api/admins/create", {
       method: "POST",
       headers: {
+        "Accept":"application/json",
         "Content-Type": "application/json",
         Authorization:
-          "Bearer 1|Ckh9lEP1wS7ycXQE5kheyIHXQ4X6uy4oZm3tANHw45479778",
+        `Bearer ${token}`,
       },
       body: JSON.stringify(infos),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Data posted successfully:", data);
+      
         reset()
         // Handle success response here
       })

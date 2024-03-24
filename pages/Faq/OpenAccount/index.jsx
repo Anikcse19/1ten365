@@ -1,7 +1,9 @@
+import Layout from "@/components/shared/Layout/Layout"
 
 const OpenAccount = () => {
   return (
-    <div className="bg-white w-full min-h-screen">
+    <Layout>
+        <div className="bg-white w-full min-h-screen">
         <div className="p-12">
             <div className=" border border-gray-400 p-10">
                 <p className="text-base md:text-4xl font-bold text-red-600">কিভাবে একাউন্ট খুলবেন?</p>
@@ -34,11 +36,9 @@ const OpenAccount = () => {
 
                 </div>
             </div>
-
-        </div>
-
-      
+        </div>     
     </div>
+    </Layout>
   )
 }
 

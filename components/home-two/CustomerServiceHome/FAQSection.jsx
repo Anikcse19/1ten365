@@ -4,9 +4,30 @@ import React from "react";
 import { FaThList } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoGridSharp } from "react-icons/io5";
-import img1 from "../../../public/images/home img1.jpg";
+import img1 from "../../../public/images/1ten365/proxy link.png";
+import payment from "../../../public/images/1ten365/payment method.png";
+import createAccount from "../../../public/images/1ten365/how to create account.png";
+import conditions from "../../../public/images/1ten365/1ten T&C.png";
+import facebookGroup from "../../../public/images/1ten365/facebook page.png";
+import becomeAgent from "../../../public/images/1ten365/agent hote chai.png";
+import becomeMA from "../../../public/images/1ten365/how to became a master agent.png";
+import complain from "../../../public/images/1ten365/complain center.png";
+
 
 const FAQSection = () => {
+  const faqs = [
+    { title: "1TEN তে কিভাবে লেনদেন করবেন?", url: "", img: payment },
+    { title: "কিভাবে একাউন্ট খুলবেন?", url: "", img: createAccount },
+    { title: "একাউন্ট খোলার নিয়ম বা শর্ত গুলো কি কি?", url: "", img: conditions },
+    { title: "1TEN ফেইসবুক গ্রুপ লিঙ্ক কোন টা?", url: "", img: facebookGroup },
+    { title: "কিভাবে আমি 1TEN এ এজেন্ট হতে পারি?", url: "", img: becomeAgent },
+    {
+      title: "কিভাবে আমি 1TEN তে অনলাইন মাষ্টার এজেন্ট হতে পারি?",
+      url: "",
+      img: becomeMA,
+    },
+    { title: "এজেন্ট এর বিরুদ্ধে কিভাবে অভিযোগ করবেন?", url: "", img: complain },
+  ];
   return (
     <div>
       <div className="flex justify-between items-center py-4 px-5">
@@ -50,28 +71,28 @@ const FAQSection = () => {
 
         <div className="mt-8">
           <p className="border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
-            <span>ভেল্কি সাইটের মেইন লিঙ্কঃ</span>
+            <span>1TEN সাইটের মেইন লিঙ্কঃ</span>
             <span className=" text-red-600">www.velki.live</span>
           </p>
           <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
-            <span>ভেল্কি সাইটের মেইন লিঙ্কঃ</span>
+            <span>1TEN সাইটের মেইন লিঙ্কঃ</span>
             <span className=" text-red-600">www.nayaludis.com</span>
           </p>
           <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
-            <span>ভেল্কি সাইটের প্রক্সী লিঙ্ক ১ঃ</span>
+            <span>1TEN সাইটের প্রক্সী লিঙ্ক ১ঃ</span>
             <span className=" text-red-600">www.velki365.live</span>
           </p>
           <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
-            <span>ভেল্কি সাইটের প্রক্সী লিঙ্ক ২ঃ</span>
+            <span>1TEN সাইটের প্রক্সী লিঙ্ক ২ঃ</span>
             <span className=" text-red-600">www.velkiex123.live</span>
           </p>
         </div>
       </div>
 
       <div className="flex flex-col">
-        {Array.from({ length: 7 }).map((item, i) => (
+        {faqs.map((item, i) => (
           <div key={i} className="flex items-center gap-x-5 border-t p-5">
-            <Image src={img1} alt="Image" width={140} height={100}></Image>
+            <Image src={item.img} alt="Image" width={140} height={100}></Image>
 
             <div>
               <Link
@@ -82,7 +103,7 @@ const FAQSection = () => {
               </Link>
 
               <p className="mt-2 font-semibold hover:text-red-600 text-sm">
-                ভেল্কি তে কিভাবে লেনদেন করবেন?
+                {item.title}
               </p>
             </div>
           </div>

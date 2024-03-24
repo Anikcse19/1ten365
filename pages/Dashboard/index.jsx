@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const ls = typeof window != "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
+
 const Dashboard = () => {
   const [adminId, setAdminId] = useState();
  

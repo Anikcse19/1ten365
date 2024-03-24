@@ -30,12 +30,12 @@ const Navbar = () => {
 
   return (
     <div className="border-b-2 bg-white border-slate-200">
-      <div className="w-[1170px] mx-auto">
+      <div className="w-[76%] mx-auto">
         <div className="flex items-center gap-x- w-full h-[50px]">
           <ul class="h-[50px] flex items-center">
 
             <li className="w-[150px] h-full font-semibold flex justify-center items-center hover:bg-slate-900 hover:text-white border-r">
-              <Link href="">হোম পেইজ</Link>
+              <Link href="/Admins/CustomerService">হোম পেইজ</Link>
             </li>
 
             <div class="dropdown h-full inline-block relative w-[200px] border-r">

@@ -6,14 +6,17 @@ const NavInfo = () => {
     {
       title: "1Ten",
       url: "",
+      status: true,
     },
     {
       title: "1Ten কমিউনিটি",
       url: "",
+      status: false,
     },
     {
       title: "1Ten ফোরাম",
       url: "",
+      status: false,
     },
   ];
 
@@ -23,9 +26,9 @@ const NavInfo = () => {
         {menus.map((item, i) => (
           <li
             key={i}
-            className="w-[150px] h-full text-slate-900 font-semibold text-sm hover:text-white hover:bg-slate-900 flex justify-center items-center border-r border-slate-300"
+            className={`w-[150px] h-full text-slate-900 font-semibold text-sm hover:text-white hover:bg-slate-900 flex justify-center items-center border-r border-slate-300 ${item.status ? "" : "cursor-not-allowed"}`}
           >
-            <Link href="">{item?.title}</Link>
+            <Link href="" className={`${item.status ? "" : "cursor-not-allowed"}`}>{item?.title}</Link>
           </li>
         ))}
       </ul>

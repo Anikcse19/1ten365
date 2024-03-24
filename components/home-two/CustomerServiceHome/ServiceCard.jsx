@@ -2,14 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
-import img1 from "../../../public/images/home img1.jpg";
 
-const ServiceCard = () => {
+const ServiceCard = ({item}) => {
+
+
+
   return (
     <div className="border flex flex-col items-center justify-center gap-y-5">
       <div className="relative">
         <Image
-          src={img1}
+          src={item.img}
           alt="Next Image"
           layout="responsive"
           width={1920}
@@ -26,12 +28,11 @@ const ServiceCard = () => {
       </div>
 
       <h3 className=" hover:text-red-700  font-semibold">
-        মাস্টার এজেন্ট লিষ্টঃ
+        {item.title}
       </h3>
 
       <p className="text-sm text-center">
-        এজেন্ট দের সাথে লেনদেন এর আগে ভেল্কির নিয়ম গুলো জেনে নিন!! **প্রতারনার
-        হাত থেকে বাচতে
+        {item.des}
       </p>
 
       <div className="w-full">

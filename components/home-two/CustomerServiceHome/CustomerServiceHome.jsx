@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import img1 from "../../../public/images/home img1.jpg";
+import CustomerServiceList from "../../../public/images/1ten365/customer service.png";
 import img2 from "../../../public/images/home img3.jpg";
 import Link from "next/link";
 import ServiceCard from "./ServiceCard";
@@ -8,8 +9,42 @@ import RandomMasterAgent from "./RandomMasterAgent";
 import FAQSection from "./FAQSection";
 import FooterSection from "./FooterSection";
 import { IoMenuOutline } from "react-icons/io5";
+import superAgent from "../../../public/images/1ten365/super agent list.png";
+import payment from "../../../public/images/1ten365/payment method.png";
+import createAccount from "../../../public/images/1ten365/how to create account.png";
+import conditions from "../../../public/images/1ten365/1ten T&C.png";
+import createNewAccount from "../../../public/images/1ten365/10TEN365 ACCOUNT.png";
+import subAdmin from "../../../public/images/1ten365/sub admin list.png";
 
 const CustomerServiceHome = () => {
+  const AgentDatas = [
+    {
+      title: "এজেন্ট লিষ্টঃ",
+      des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
+      img: superAgent,
+    },
+    {
+      title: "সুপার এজেন্ট লিষ্টঃ",
+      des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
+      img: superAgent,
+    },
+    {
+      title: "সাব এডমিন লিষ্টঃ",
+      des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
+      img: subAdmin,
+    },
+  ];
+
+  const faqs = [
+    { title: "1TEN তে কিভাবে লেনদেন করবেন?", url: "", img: payment },
+    { title: "কিভাবে একাউন্ট খুলবেন?", url: "", img: createAccount },
+    {
+      title: "একাউন্ট খোলার নিয়ম বা শর্ত গুলো কি কি?",
+      url: "",
+      img: conditions,
+    },
+  ];
+
   return (
     <div className="w-[76%] mx-auto py-5">
       <div className="flex">
@@ -19,7 +54,7 @@ const CustomerServiceHome = () => {
             <div className="border-b border-slate-300">
               <div className="relative">
                 <Image
-                  src={img1}
+                  src={CustomerServiceList}
                   alt="Next Image"
                   layout="responsive"
                   width={1920}
@@ -44,7 +79,7 @@ const CustomerServiceHome = () => {
                 </h1>
 
                 <h2 className="mt-10 text-[25px] text-center font-semibold">
-                  VELKI CUSTOMER SERVICE LIST
+                  1TEN CUSTOMER SERVICE LIST
                 </h2>
 
                 <div>
@@ -58,12 +93,11 @@ const CustomerServiceHome = () => {
             {/* Service List */}
             <div className="p-5">
               <div className="flex items-center gap-4">
-                {[1, 2, 3].map((item, i) => (
-                  <ServiceCard />
+                {AgentDatas.map((item, i) => (
+                  <ServiceCard item={item} key={i} />
                 ))}
               </div>
             </div>
-
           </div>
         </div>
 
@@ -74,9 +108,14 @@ const CustomerServiceHome = () => {
             <IoMenuOutline />
           </div>
           <div className="flex flex-col">
-            {Array.from({ length: 3 }).map((item, i) => (
+            {faqs.map((item, i) => (
               <div key={i} className="flex items-center gap-x-5 border-t p-5">
-                <Image src={img1} alt="Image" width={80} height={50}></Image>
+                <Image
+                  src={item.img}
+                  alt="Image"
+                  width={80}
+                  height={50}
+                ></Image>
 
                 <div>
                   <div className="flex items-center gap-x-2">
@@ -90,7 +129,7 @@ const CustomerServiceHome = () => {
                   </div>
 
                   <p className="mt-1.5 font-semibold hover:text-red-600 text-xs">
-                    ভেল্কি তে কিভাবে লেনদেন করবেন?
+                    {item.title}
                   </p>
                 </div>
               </div>
@@ -98,7 +137,12 @@ const CustomerServiceHome = () => {
           </div>
 
           <div className="border p-5 mt-1">
-            <Image src={img2} alt="Image" width={550} height={550}></Image>
+            <Image
+              src={createNewAccount}
+              alt="Image"
+              width={550}
+              height={550}
+            ></Image>
           </div>
         </div>
       </div>
@@ -111,9 +155,7 @@ const CustomerServiceHome = () => {
           {/* FAQ Section */}
           <FAQSection />
         </div>
-        <div className="w-[30%] bg-gray-100">
-
-        </div>
+        <div className="w-[30%] bg-gray-100"></div>
       </div>
 
       <FooterSection />

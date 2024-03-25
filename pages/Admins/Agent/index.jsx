@@ -84,9 +84,9 @@ const Agent = () => {
     <Layout>
       <div>
         {/*Site admin config  start*/}
-        <div className="w-full  mt-12">
+        <div className="w-full mt-6 lg:mt-12">
           {/* agent/admin search start */}
-          <div className="w-[80%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
+          <div className=" lg:w-[76%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5 ">
             <div>
               <p className="text-base lg:text-xl lg:font-bold">
                 এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ
@@ -141,7 +141,7 @@ const Agent = () => {
 
           {/* show search result start */}
           {userNotFound && (
-            <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+            <div className="w-[76%] mx-auto bg-white  p-5 my-10">
               <div className="text-center">
                 <p className="text-base md:text-2xl font-bold my-3 ">
                   আপনি যে এজেন্ট খুজচ্ছেন তার নাম আমাদের লিষ্টে নেই

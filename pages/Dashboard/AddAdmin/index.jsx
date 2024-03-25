@@ -6,6 +6,7 @@ import DashboardLayout from "..";
 
 const ls = typeof window != "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
+
 const AddAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
   const [types, setTypes] = useState();

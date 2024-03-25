@@ -18,9 +18,10 @@ const SubAdminPage = () => {
   const [types, setTypes] = useState([]);
   const [admins, setAdmins] = useState([]);
   const [userNotFound, setUserNotFound] = useState(false);
-  const [currentSelected,setCurrentSelected]=useState({
-    obj:{},status:false
-  })
+  const [currentSelected, setCurrentSelected] = useState({
+    obj: {},
+    status: false,
+  });
   const router = useRouter();
 
   useEffect(() => {
@@ -74,9 +75,9 @@ const SubAdminPage = () => {
     <Layout>
       <div>
         {/*Site admin config  start*/}
-        <div className="w-full  mt-12">
+        <div className="w-full mt-6 lg:mt-12 px-5">
           {/* agent/admin search start */}
-          <div className="w-[80%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
+          <div className="lg:w-[80%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
             <div>
               <p className="text-base lg:text-xl font-semibold lg:font-bold">
                 এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ
@@ -123,8 +124,8 @@ const SubAdminPage = () => {
           </div>
           {/* agent/admin search end */}
 
-           {/* show Complain box start */}
-           {currentSelected.status && (
+          {/* show Complain box start */}
+          {currentSelected.status && (
             <div id="complain">
               <Complain
                 from="subAdmin"
@@ -155,7 +156,7 @@ const SubAdminPage = () => {
               </div>
             </div>
           )}
-          
+
           {searchedResult?.id && (
             <div className="w-[80%] mx-auto bg-white  p-5 my-10">
               {/* show search admin details start*/}
@@ -252,11 +253,12 @@ const SubAdminPage = () => {
           {/* show search result end */}
 
           {/* poster start */}
-          <div className="w-[80%] mx-auto p-5 my-10">
+          <div className="lg:w-[80%] mx-auto p- my-10">
             <Image
-              width={400}
-              height={200}
-              className="w-[100%]"
+              width={1920}
+              height={1080}
+              layout="responsive"
+              className="w-full h-full object-cover"
               src={subAdminPoster}
               alt="poster"
             />
@@ -264,7 +266,7 @@ const SubAdminPage = () => {
           {/* poster end */}
 
           {/* user alert start*/}
-          <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
+          <div className="lg:w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10 ">
             <p className="text-base lg:text-xl font-bold">
               এজেন্ট দের সাথে লেনদেন এর আগে 1ten এর নিয়ম গুলো জেনে নিন!!
             </p>
@@ -282,38 +284,38 @@ const SubAdminPage = () => {
           {/* admin table start */}
           {admins?.map((admin) => (
             <div
-              className="w-[80%] mx-auto bg-white   p-5 my-10"
+              className="lg:w-[80%] mx-auto bg-white lg:p-5 my-10 "
               key={admin?.input_id}
             >
               <div className="text-center">
                 <span className="text-center text-base md:text-xl">
-                  এডমিন{" "}
+                  এডমিন
                   <p className="text-lg md:text-2xl font-bold inline">
                     {admin?.name}
-                  </p>{" "}
+                  </p>
                   এর অধীনে সর্বমোট সাব-এডমিন আছে {admin?.children?.length} জন
                 </span>
               </div>
               <div className="w-full relative overflow-x-auto overflow-y-auto max-w-screen  max-h-screen mt-5 border-2 border-orange-700 ">
                 <table className="w-full">
-                  <thead className="sticky top-0 text-base bg-gray-400 w-full">
+                  <thead className="sticky top-0 text-sm lg:text-base bg-gray-400 w-full">
                     <tr className="border-b border-orange-700 ">
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-5 lg:px-10 py-3">
                         ID NO
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-5 lg:px-10 py-3">
                         NAME
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-5 lg:px-10 py-3">
                         AGENT
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-5 lg:px-10 py-3">
                         APP
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-5 lg:px-10 py-3">
                         PHONE NUMBER
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-5 lg:px-10 py-3">
                         COMPALIN
                       </th>
                     </tr>
@@ -349,23 +351,24 @@ const SubAdminPage = () => {
                             {adminC?.profile?.phone}
                           </td>
                           <td
-                           onClick={() => {
-                            setCurrentSelected({
-                              obj: {},
-                              status: false,
-                            });
+                            onClick={() => {
+                              setCurrentSelected({
+                                obj: {},
+                                status: false,
+                              });
 
-                            window.scrollTo({
-                              top: 500,
-                              behavior: "smooth", // This smooth scrolls the page to the top
-                            });
+                              window.scrollTo({
+                                top: 500,
+                                behavior: "smooth", // This smooth scrolls the page to the top
+                              });
 
-                            setCurrentSelected({
-                              obj: adminC,
-                              status: true,
-                            });
-                          }}
-                          className="px-3 py-3 font-bold text-center cursor-pointer hover:underline hover:text-blue-800">
+                              setCurrentSelected({
+                                obj: adminC,
+                                status: true,
+                              });
+                            }}
+                            className="px-3 py-3 font-bold text-center cursor-pointer hover:underline hover:text-blue-800"
+                          >
                             অভিযোগ
                           </td>
                         </tr>
@@ -380,8 +383,8 @@ const SubAdminPage = () => {
         </div>
       </div>
       <div className="w-[90%] mx-auto mb-2">
-    <FooterSection/>
-    </div>
+        <FooterSection />
+      </div>
     </Layout>
   );
 };

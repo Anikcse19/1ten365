@@ -47,7 +47,7 @@ const RandomMasterAgent = () => {
         </button>
       </div>
 
-      <div className="flex items-center gap-x-4 p-5">
+      <div className="grid lg:grid-cols-4 items-center gap-4 p-5">
         {admins?.map((item, i) => (
           <Link href="" key={i} className="border pb-5">
             <div className="relative ">

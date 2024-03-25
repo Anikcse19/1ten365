@@ -69,19 +69,19 @@ const FAQSection = () => {
         <h2 className="mt-7 text-lg font-semibold">1TEN প্রক্সি লিঙ্ক</h2>
 
         <div className="mt-8">
-          <p className="border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
+          <p className="border-b flex justify-between items-center pb-1 text-[12px] font-semibold lg:pr-20">
             <span>1TEN সাইটের মেইন লিঙ্কঃ</span>
             <span className=" text-red-600">www.1ten365.live</span>
           </p>
-          <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
+          <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold lg:pr-20">
             <span>1TEN সাইটের মেইন লিঙ্কঃ</span>
             <span className=" text-red-600">www.nayaludis.com</span>
           </p>
-          <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
+          <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold lg:pr-20">
             <span>1TEN সাইটের প্রক্সী লিঙ্ক ১ঃ</span>
             <span className=" text-red-600">www.1ten365.live</span>
           </p>
-          <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
+          <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold lg:pr-20">
             <span>1TEN সাইটের প্রক্সী লিঙ্ক ২ঃ</span>
             <span className=" text-red-600">www.1ten365.live</span>
           </p>
@@ -101,7 +101,7 @@ const FAQSection = () => {
                 1TEN FAQ
               </Link>
 
-              <p className="mt-2 font-semibold hover:text-red-600 text-sm">
+              <p className="mt-2 lg:font-semibold hover:text-red-600 text-sm">
                 {item.title}
               </p>
             </div>

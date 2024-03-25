@@ -19,19 +19,19 @@ const CustomerServiceHome = () => {
   const AgentDatas = [
     {
       title: "এজেন্ট লিষ্টঃ",
-      link:'/Admins/Agent',
+      link:'/Agent',
       des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
       img: superAgent,
     },
     {
       title: "সুপার এজেন্ট লিষ্টঃ",
-      link:'/Admins/SuperAgent',
+      link:'/SuperAgent',
       des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
       img: superAgent,
     },
     {
       title: "সাব এডমিন লিষ্টঃ",
-      link:'/Admins/SubAdmin',
+      link:'/SubAdmin',
       des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
       img: subAdmin,
     },
@@ -56,12 +56,13 @@ const CustomerServiceHome = () => {
             <div className="border-b border-slate-300">
               <div className="relative">
                 <Image
+                onClick={()=>router.push('/Admins/CustomerService')}
                   src={CustomerServiceList}
                   alt="Next Image"
                   layout="responsive"
                   width={1920}
                   height={1080}
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full cursor-pointer"
                 ></Image>
                 <div className="bg-black bg-opacity-[30%] w-full h-[30px] lg:h-[45px] absolute left-0 top-0 flex items-center px-5">
                   <p className="uppercase text-white text-sm lg:text-base">
@@ -70,7 +71,7 @@ const CustomerServiceHome = () => {
                 </div>
 
                 <Link
-                  href=""
+                  href="/Admins/Agent"
                   className="absolute -bottom-1.5 left-5 bg-white border border-slate-500 px-2 text-xs hover:bg-red-700 hover:text-white uppercase"
                 >
                   Agent

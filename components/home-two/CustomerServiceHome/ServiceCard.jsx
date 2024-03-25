@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const ServiceCard = ({item}) => {
-
+const router=useRouter()
 
 
   return (
@@ -14,11 +15,12 @@ const ServiceCard = ({item}) => {
           layout="responsive"
           width={1920}
           height={1080}
-          className="object-cover w-full h-full"
+          onClick={()=>router.push(`/Admins/${item?.link}`)}
+          className="object-cover w-full h-full cursor-pointer"
         ></Image>
 
         <Link
-          href=""
+          href={`/Admins/${item?.link}`}
           className="absolute -bottom-2.5 left-5 bg-white border border-slate-500 px-2 py-[2px] text-xs hover:bg-red-700 hover:text-white uppercase"
         >
           Agent

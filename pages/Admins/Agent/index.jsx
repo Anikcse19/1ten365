@@ -60,6 +60,9 @@ const Agent = () => {
   const handleAdminSearch = () => {
     setUserNotFound(false);
     setSearchedResult({});
+    setCurrentSelected({
+      obj:{},status:false
+    })
     axios
       .get(`${base_url}/admins/${adminId}?type=${adminType}`, {
         headers: {
@@ -102,8 +105,8 @@ const Agent = () => {
                 onChange={(e) => setAdminType(e.target.value)}
                 className="outline-none border-2 border-black px-2 py-1 w-[220px]"
               >
-                {types?.slice(1, 5)?.map((type) => (
-                  <option value={type}>{type}</option>
+                {types?.slice(1, 5)?.map((type,i) => (
+                  <option key={i} value={type}>{type}</option>
                 ))}
               </select>
             </div>

@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { TiArrowBackOutline } from "react-icons/ti";
 import DashboardLayout from "..";
 
 const ls = typeof window != "undefined" ? window.localStorage : null;
@@ -11,7 +9,7 @@ const AddAdmin = () => {
   const [types, setTypes] = useState();
   const [selectedType, setSelectedType] = useState("");
 
-  const filteredAdmins = types?.filter((item) => item !== "সাইট এডমিন");
+  // const filteredAdmins = types?.filter((item) => item !== "সাইট এডমিন");
 
   useEffect(() => {
     fetch("https://test.aglist1ten365.com/api/admins/types", {
@@ -34,6 +32,7 @@ const AddAdmin = () => {
   useEffect(() => {
     fetch(
       `https://test.aglist1ten365.com/api/admins?type=${
+        selectedType === "এডমিন" ? "সাইট এডমিন" :
         selectedType === "সাব এডমিন"
           ? "এডমিন"
           : selectedType === "সুপার এজেন্ট"
@@ -135,7 +134,7 @@ const AddAdmin = () => {
               <div>
                 <label className="text-gray-800 ">What's Link</label>
                 <input
-                  type="text"
+                  type="number"
                   placeholder="what's app link"
                   {...register("wa_link")}
                   className={inputFieldSTyle}
@@ -153,7 +152,7 @@ const AddAdmin = () => {
                   <option value="" hidden>
                     Select Types
                   </option>
-                  {filteredAdmins?.map((item, i) => (
+                  {types?.map((item, i) => (
                     <option key={i} value={item}>
                       {item}
                     </option>
@@ -162,13 +161,15 @@ const AddAdmin = () => {
               </div>
 
               {/* Supervisor */}
-              <div className={`${selectedType === "এডমিন" ? "hidden" : ""}`}>
+              <div className={`${selectedType === "সাইট এডমিন" ? "hidden" : ""}`}>
                 <label className="text-gray-800 ">Supervisor</label>
                 <select {...register("admin_id")} className={inputFieldSTyle}>
                   <option hidden>
                     Select-
-                    {selectedType === "এডমিন"
-                      ? "Admin"
+                    {selectedType === "সাইট এডমিন"
+                    ? "Site Admin" :
+                  selectedType === "এডমিন"
+                    ? "Site Admin" 
                       : selectedType === "সাব এডমিন"
                       ? "Admin"
                       : selectedType === "সুপার এজেন্ট"

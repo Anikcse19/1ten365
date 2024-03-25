@@ -61,7 +61,7 @@ const AddAdmin = () => {
       type: selectedType,
     };
 
-    if (infos.type == "এডমিন") {
+    if (infos.type == "সাইট এডমিন") {
       delete infos.admin_id;
     }
 

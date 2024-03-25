@@ -1,8 +1,9 @@
+import base_url from "@/utils/Url";
+import axios from "axios";
 import Link from "next/link";
-import { TiArrowBackOutline } from "react-icons/ti";
-import DashboardLayout from "..";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import DashboardLayout from "..";
 
 const ls = typeof window != "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
@@ -54,57 +55,52 @@ export default function ViewAdmins() {
   ];
 
   const [datas, setDatas] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://test.aglist1ten365.com/api/admins`,
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        const data = await response.json();
-        console.log(data);
-        setDatas(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const fetchData = async() => {
+    try {
+      const response = await fetch(
+        `${base_url}/admins`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      setDatas(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    fetchData();
+  useEffect(() => {
+   fetchData();
   }, []);
 
   const handleDelete = (adminId) => {
     console.log(adminId);
-
-    const fetchData = async () => {
+  
       try {
-        const response = await fetch(
-          `https://test.aglist1ten365.com/api/admins/destroy`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: adminId,
+        const formData=new FormData()
+        formData.append('id',adminId)
+        axios.post(`${base_url}/admins/destroy`,formData,{
+         headers:{
+          Accept:'application/json',
+          'Content-type':'application/json',
+          Authorization:`Bearer ${token}`
+         }
+        }).then(async res=>{
+          if(res?.data?.msg=='success'){
+            toast.success('User Deleted')
+            await fetchData()
           }
-        );
-        const data = await response.json();
-        console.log(data);
-        if (data) {
-          toast.success(data.msg);
-        }
+        })
       } catch (error) {
         console.log(error);
       }
-    };
-
-    fetchData();
+    
   };
 
   return (

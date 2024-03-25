@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { TiArrowBackOutline } from "react-icons/ti";
 import DashboardLayout from "..";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+
+const ls = typeof window != "undefined" ? window.localStorage : null;
+const token = ls?.getItem("token");
 
 export default function ViewAdmins() {
   const tableItems = [
@@ -48,6 +53,60 @@ export default function ViewAdmins() {
     },
   ];
 
+  const [datas, setDatas] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://test.aglist1ten365.com/api/admins`,
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = await response.json();
+        console.log(data);
+        setDatas(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleDelete = (adminId) => {
+    console.log(adminId);
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://test.aglist1ten365.com/api/admins/destroy`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: adminId,
+          }
+        );
+        const data = await response.json();
+        console.log(data);
+        if (data) {
+          toast.success(data.msg);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  };
+
   return (
     <DashboardLayout>
       <div className="">
@@ -71,36 +130,41 @@ export default function ViewAdmins() {
             <table className="w-full table-auto text-sm text-left">
               <thead className="bg-gray-300 text-slate-800 font-medium border-b">
                 <tr>
-                  <th className="py-3 px-6">Username</th>
-                  <th className="py-3 px-6">Number</th>
-                  <th className="py-3 px-6">Role</th>
-                  <th className="py-3 px-6">Rank</th>
-                  <th className="py-3 px-6"></th>
+                  <th className="py-3 px-6">ID</th>
+                  <th className="py-3 px-6">Name</th>
+                  <th className="py-3 px-6">Phone</th>
+                  <th className="py-3 px-6">Type</th>
+                  <th className="py-3 px-6">WhatsApp Link</th>
+                  <th className="py-3 px-6 text-center">Actions</th>
                 </tr>
               </thead>
               <tbody className="text-slate-800 divide-y">
-                {tableItems.map((item, idx) => (
+                {datas?.admins?.map((item, idx) => (
                   <tr key={idx}>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {item?.input_id}
+                    </td>
+
                     <td className="flex items-center gap-x-3 py-3 px-6 whitespace-nowrap">
-                      <img
-                        src={item.avatar}
-                        className="w-10 h-10 rounded-full"
-                      />
                       <div>
                         <span className="block text-slate-800 text-sm font-medium">
-                          {item.name}
+                          {item?.name}
                         </span>
                       </div>
                     </td>
+
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {item.phone_nimber}
+                      {item?.profile.phone}
                     </td>
+
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {item.position}
+                      {item?.profile.type}
                     </td>
+
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {item.salary}
+                      {item?.profile?.wa_link}
                     </td>
+
                     <td className="text-right px-6 whitespace-nowrap">
                       <a
                         href="javascript:void()"
@@ -109,7 +173,7 @@ export default function ViewAdmins() {
                         Edit
                       </a>
                       <button
-                        href="javascript:void()"
+                        onClick={() => handleDelete(item?.id)}
                         className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
                       >
                         Delete

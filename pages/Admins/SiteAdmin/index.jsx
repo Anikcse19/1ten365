@@ -58,24 +58,24 @@ const SiteAdminPage = () => {
               </div> */}
               <div className="w-full relative overflow-x-auto overflow-y-auto max-w-screen  max-h-screen mt-5 border-2 border-orange-700 ">
           <table className="w-full">
-            <thead className="sticky top-0 text-base bg-gray-400 w-full">
+            <thead className="sticky top-0 text-sm lg:text-base bg-gray-400 w-full">
               <tr className="border-b border-orange-700 ">
-                <th scope="col" className="px-10 py-3">
+                <th scope="col" className="px-5 lg:px-10 py-3">
                   ID NO
                 </th>
-                <th scope="col" className="px-10 py-3">
+                <th scope="col" className="px-5 lg:px-10 py-3">
                   NAME
                 </th>
-                <th scope="col" className="px-10 py-3">
+                <th scope="col" className="px-5 lg:px-10 py-3">
                   AGENT
                 </th>
-                <th scope="col" className="px-10 py-3">
+                <th scope="col" className="px-5 lg:px-10 py-3">
                   APP
                 </th>
-                <th scope="col" className="px-10 py-3">
+                <th scope="col" className="px-5 lg:px-10 py-3">
                   PHONE NUMBER
                 </th>
-                {/* <th scope="col" className="px-10 py-3">
+                {/* <th scope="col" className="px-5 lg:px-10 py-3">
                   COMPALIN
                 </th> */}
               </tr>

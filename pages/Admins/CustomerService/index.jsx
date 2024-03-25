@@ -26,38 +26,40 @@ const CustomerServicePage = () => {
   return (
     <Layout>
       <div className="bg-white">
-        <div className="w-[80%] mx-auto bg-white   p-5 my-10">
-          <div className="w-[100%]  p-5 my-10">
+        <div className="lg:w-[76%] mx-auto bg-white p-5 my-5 lg:my-10">
+          <div className="w-[100%]">
             <Image
-              width={400}
-              height={200}
-              className="w-[100%]"
+              width={1920}
+              height={1080}
+              layout="responsive"
+              className="w-full h-full object-cover"
               src={custServicePoster}
               alt="poster"
             />
           </div>
           <div className="text-center">
-            <p className="text-base md:text-2xl font-bold">
+            <p className="mt-2 text-base md:text-2xl font-bold">
               1ten365 CUSTOMER SERVICE LIST
             </p>
           </div>
+
           <div className="w-full relative overflow-x-auto overflow-y-auto max-w-screen  max-h-screen mt-5 border-2 border-orange-700 ">
             <table className="w-full">
-              <thead className="sticky top-0 text-base bg-gray-400 w-full">
+              <thead className="sticky top-0 text-sm lg:text-base bg-gray-400 w-full">
                 <tr className="border-b border-orange-700 ">
-                  <th scope="col" className="px-10 py-3">
+                  <th scope="col" className=" px-5 lg:px-10 py-3">
                     ID NO
                   </th>
-                  <th scope="col" className="px-10 py-3">
+                  <th scope="col" className=" px-5 lg:px-10 py-3">
                     NAME
                   </th>
-                  <th scope="col" className="px-10 py-3">
+                  <th scope="col" className=" px-5 lg:px-10 py-3">
                     AGENT
                   </th>
-                  <th scope="col" className="px-10 py-3">
+                  <th scope="col" className=" px-5 lg:px-10 py-3">
                     APP
                   </th>
-                  <th scope="col" className="px-10 py-3">
+                  <th scope="col" className=" px-5 lg:px-10 py-3">
                     PHONE NUMBER
                   </th>
                 </tr>
@@ -96,8 +98,8 @@ const CustomerServicePage = () => {
         </div>
       </div>
       <div className="w-[90%] mx-auto mb-2">
-    <FooterSection/>
-    </div>
+        <FooterSection />
+      </div>
     </Layout>
   );
 };

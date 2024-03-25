@@ -69,15 +69,15 @@ const AdminPage = () => {
         }else{
           setUserNotFound(true)
         }
-        });
-    };
+      });
+  };
   return (
     <Layout>
       <div>
         {/*Site admin config  start*/}
-        <div className="w-full  mt-12">
+        <div className="w-full mt-6 lg:mt-12">
           {/* agent/admin search start */}
-          <div className="w-[80%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
+          <div className="w-[80%] mx-auto bg-white  flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
             <div>
               <p className="text-base lg:text-xl lg:font-bold">
                 এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ
@@ -133,20 +133,26 @@ const AdminPage = () => {
 
           {/* show search result start */}
 
-          {
-        userNotFound && (
-    <div className="w-[80%] mx-auto bg-white  p-5 my-10">
-        <div className="text-center">
-            <p className="text-base md:text-2xl font-bold my-3 ">আপনি যে এজেন্ট খুজচ্ছেন তার নাম আমাদের লিষ্টে নেই</p>
-            <p className="text-base md:text-lg font-bold my-3 ">দয়া করে কাষ্টমার সার্ভিসে যোগাযোগ করুন।</p>
-            <p onClick={()=>router.push('/Admins/CustomerService')} className="text-base md:text-xl font-bold my-3 text-red-600 hover:underline cursor-pointer">কাষ্টমার সার্ভিস এর নাম্বার গুলো পেতে এই লিঙ্ক এ ক্লিক করুন</p>
-
-        </div>
-
-    </div>)
-       }
-          {searchedResult?.id && (
+          {userNotFound && (
             <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+              <div className="text-center">
+                <p className="text-base md:text-2xl font-bold my-3 ">
+                  আপনি যে এজেন্ট খুজচ্ছেন তার নাম আমাদের লিষ্টে নেই
+                </p>
+                <p className="text-base md:text-lg font-bold my-3 ">
+                  দয়া করে কাষ্টমার সার্ভিসে যোগাযোগ করুন।
+                </p>
+                <p
+                  onClick={() => router.push("/Admins/CustomerService")}
+                  className="text-base md:text-xl font-bold my-3 text-red-600 hover:underline cursor-pointer"
+                >
+                  কাষ্টমার সার্ভিস এর নাম্বার গুলো পেতে এই লিঙ্ক এ ক্লিক করুন
+                </p>
+              </div>
+            </div>
+          )}
+          {searchedResult?.id && (
+            <div className="w-[80%] mx-auto bg-white p-5 my-10">
               {/* show search admin details start*/}
               <p className="text-center text-base lg:text-lg font-bold mb-3">
                 উনি 1ten365 এর একজন অনলাইন {searchedResult?.profile?.type}{" "}
@@ -231,14 +237,14 @@ const AdminPage = () => {
 
           {/* show search result end */}
 
-         {/* poster start */}
-         {/* <div className="w-[80%] mx-auto p-5 my-10">
+          {/* poster start */}
+          {/* <div className="w-[80%] mx-auto p-5 my-10">
           <Image width={400} height={200} className="w-[100%]" src={adminPoster} alt="poster"/>
           </div> */}
           {/* poster end */}
 
           {/* user alert start*/}
-          <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
+          <div className="w-[80%]  mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
             <p className="text-base lg:text-xl font-bold">
               এজেন্ট দের সাথে লেনদেন এর আগে 1ten365 এর নিয়ম গুলো জেনে নিন!!
             </p>
@@ -343,8 +349,8 @@ const AdminPage = () => {
         </div>
       </div>
       <div className="w-[90%] mx-auto mb-2">
-    <FooterSection/>
-    </div>
+        <FooterSection />
+      </div>
     </Layout>
   );
 };

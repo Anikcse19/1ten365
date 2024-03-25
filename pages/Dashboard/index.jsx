@@ -7,9 +7,9 @@ const DashboardLayout = ({ children }) => {
   console.log(router.pathname);
 
   return (
-    <div className="flex lg:flex-row flex-col">
+    <div className="max-w-screen min-h-screen flex lg:flex-row flex-col">
 
-      <div className="hidden lg:block lg:w-[21%]">
+      <div className="hidden lg:block lg:w-[21%] bg-green-100 h-full">
         <DashboardSidebar />
       </div>
 

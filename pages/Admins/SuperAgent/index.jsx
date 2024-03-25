@@ -78,9 +78,9 @@ const SuperAgent = () => {
     <Layout>
       <div>
         {/*Site admin config  start*/}
-        <div className="w-full  mt-12">
+        <div className="w-full mt-6 lg:mt-12 p-5">
           {/* agent/admin search start */}
-          <div className="w-[80%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
+          <div className="lg:w-[80%] mx-auto bg-white flex flex-col items-center justify-center gap-3 lg:gap-6 py-5">
             <div>
               <p className="text-base lg:text-xl font-semibold lg:font-bold">
                 এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ
@@ -137,7 +137,7 @@ const SuperAgent = () => {
 
           {/* show search result start */}
           {userNotFound && (
-            <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+            <div className="lg:w-[80%] mx-auto bg-white  p-5 my-10">
               <div className="text-center">
                 <p className="text-base md:text-2xl font-bold my-3 ">
                   আপনি যে এজেন্ট খুজচ্ছেন তার নাম আমাদের লিষ্টে নেই
@@ -154,8 +154,9 @@ const SuperAgent = () => {
               </div>
             </div>
           )}
+
           {searchedResult?.id && (
-            <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+            <div className="lg:w-[80%] mx-auto bg-white  p-5 my-10">
               {/* show search admin details start*/}
               <p className="text-center text-base lg:text-lg font-bold mb-3">
                 উনি 1ten365 এর একজন অনলাইন {searchedResult?.profile?.type}{" "}
@@ -257,11 +258,12 @@ const SuperAgent = () => {
 
           {/* poster start */}
 
-          <div className="w-[80%] mx-auto p-5 my-10">
+          <div className="lg:w-[80%] mx-auto my-10">
             <Image
-              width={400}
-              height={200}
-              className="w-[100%]"
+              width={1920}
+              height={1080}
+              layout="responsive"
+              className="w-full h-full object-cover"
               src={superAgentPoster}
               alt="poster"
             />
@@ -269,7 +271,7 @@ const SuperAgent = () => {
           {/* poster end */}
 
           {/* user alert start*/}
-          <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
+          <div className="lg:w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
             <p className="text-base lg:text-xl font-bold">
               এজেন্ট দের সাথে লেনদেন এর আগে 1ten এর নিয়ম গুলো জেনে নিন!!
             </p>
@@ -287,7 +289,7 @@ const SuperAgent = () => {
           {/* admin table start */}
           {subAdmins?.map((admin) => (
             <div
-              className="w-[80%] mx-auto bg-white   p-5 my-10"
+              className="lg:w-[80%] mx-auto bg-white   p-5 my-10"
               key={admin?.input_id}
             >
               <div className="text-center">

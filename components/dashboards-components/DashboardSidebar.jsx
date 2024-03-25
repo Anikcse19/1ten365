@@ -1,29 +1,26 @@
-import { MdOutlineGridView } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { FaNotesMedical } from "react-icons/fa6";
 import Link from "next/link";
 import logo from "../../public/images/1ten365/1ten365logo.png";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const DashboardSidebar = () => {
-  const navigation = [
-    {
-      href: "/Dashboard",
-      name: "Dashboard",
-      icon: <MdOutlineGridView />,
-    },
+  const route = useRouter();
 
-    {
-      href: "/Dashboard/AddAdmin",
-      name: "Add Admins",
-      icon: <FaPlus />,
-    },
+  const navigation = [
     {
       href: "/Dashboard/ViewAdmins",
       name: "View Admins",
       icon: <FaUsersViewfinder />,
     },
+    {
+      href: "/Dashboard/AddAdmin",
+      name: "Add Admins",
+      icon: <FaPlus />,
+    },
+
     {
       href: "/Dashboard/CustomService",
       name: "Create Custom Service",
@@ -33,7 +30,7 @@ const DashboardSidebar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full h-full border-r bg-white space-y-8 sm:w-80">
+      <nav className="top-0 left-0 w-full h-screen border-r bg-white">
         <div class="flex flex-col h-full">
           <div className="h-20 flex items-center px-8">
             <Link href="javascript:void(0)" className="flex-none">
@@ -46,7 +43,8 @@ const DashboardSidebar = () => {
                 <li key={idx}>
                   <Link
                     href={item.href}
-                    className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-gray-50 active:bg-gray-100 duration-150"
+                    className={`flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-gray-50 active:bg-gray-100 duration-150 
+                    ${route.pathname === item.href ? "bg-gray-200" : ""}`}
                   >
                     <div className="text-gray-500">{item.icon}</div>
                     {item.name}

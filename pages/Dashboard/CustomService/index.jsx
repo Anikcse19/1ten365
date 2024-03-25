@@ -96,13 +96,14 @@ const CustomService = () => {
   return (
     <DashboardLayout>
       <div>
-
         <div className="w-full">
-            <p className="text-lg lg:text-2xl underline font-semibold">Custom Service</p>
-          </div>
+          <p className="text-lg lg:text-2xl underline font-semibold">
+            Custom Service
+          </p>
+        </div>
 
-
-        <div className="lg:w-[450px] mx-auto mt-10 bg-gray-200 p-5">
+        {/* Select Quick Agent */}
+        <div className="lg:w-[45%] mx-auto mt-10 bg-gray-200 p-5">
           <label className="text-slate-900 font-bold">Select Quick Agent</label>
           <select onChange={handleTypeChange} className={inputFieldSTyle}>
             {adminId?.map((item, i) => (
@@ -112,17 +113,20 @@ const CustomService = () => {
             ))}
           </select>
         </div>
-        <div className="lg:w-[550px] mx-auto mt-10 bg-gray-200 p-5">
-          <label className="text-slate-900text-base md:text-xl font-bold">
+
+        {/* Create Customer Service */}
+        <div className="lg:w-[45%] mx-auto mt-10 bg-gray-200 p-5">
+          <label className="text-slate-900 font-bold">
             Create Customer Service
           </label>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center mt-3">
             <div className="col-span-1 flex flex-col gap-1 text-slate-900">
               <label htmlFor="">Name</label>
               <input
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
-                className="px-3 py-1 outline-none rounded-sm text-black"
+                className={inputFieldSTyle}
                 type="text"
                 placeholder="Type your name"
               />
@@ -132,7 +136,7 @@ const CustomService = () => {
               <input
                 value={customerPhone}
                 onChange={(e) => setCustomerPhone(e.target.value)}
-                className="px-3 py-1 outline-none rounded-sm text-black"
+                className={inputFieldSTyle}
                 type="text"
                 placeholder="Type your Phone No"
               />
@@ -142,13 +146,14 @@ const CustomService = () => {
               <input
                 value={customerWp}
                 onChange={(e) => setCustomerWP(e.target.value)}
-                className="px-3 py-1 outline-none rounded-sm text-black"
+                className={inputFieldSTyle}
                 type="text"
                 placeholder="Type your What's App No"
               />
             </div>
           </div>
-          <div className="mt-3">
+
+          <div className="flex justify-end mt-3">
             <button
               onClick={handleCreateCustomerService}
               className="px-5 py-1 bg-slate-900 rounded-md hover:bg-slate-600 hover:text-black text-white font-bold"

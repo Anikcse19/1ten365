@@ -24,26 +24,20 @@ const DashboardMobileNav = () => {
 
   const menus = [
     {
-        url: "/Dashboard",
-        title: "Dashboard",
-        icon: <MdOutlineGridView />,
-      },
-  
-      {
-        url: "/Dashboard/AddAdmin",
-        title: "Add Admins",
-        icon: <FaPlus />,
-      },
-      {
-        url: "/Dashboard/ViewAdmins",
-        title: "View Admins",
-        icon: <FaUsersViewfinder />,
-      },
-      {
-        url: "/Dashboard/CustomService",
-        title: "Create Custom Service",
-        icon: <FaNotesMedical />,
-      },
+      url: "/Dashboard/AddAdmin",
+      title: "Add Admins",
+      icon: <FaPlus />,
+    },
+    {
+      url: "/Dashboard/ViewAdmins",
+      title: "View Admins",
+      icon: <FaUsersViewfinder />,
+    },
+    {
+      url: "/Dashboard/CustomService",
+      title: "Create Custom Service",
+      icon: <FaNotesMedical />,
+    },
   ];
 
   return (
@@ -57,7 +51,6 @@ const DashboardMobileNav = () => {
           <GiHamburgerMenu />
         </button>
       </div>
-
 
       <Drawer
         open={isOpen}

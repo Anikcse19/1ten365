@@ -1,4 +1,5 @@
 import FooterSection from "@/components/home-two/CustomerServiceHome/FooterSection";
+import Complain from "@/components/shared/Complain/Complain";
 import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import axios from "axios";
@@ -17,6 +18,9 @@ const SubAdminPage = () => {
   const [types, setTypes] = useState([]);
   const [admins, setAdmins] = useState([]);
   const [userNotFound, setUserNotFound] = useState(false);
+  const [currentSelected,setCurrentSelected]=useState({
+    obj:{},status:false
+  })
   const router = useRouter();
 
   useEffect(() => {
@@ -118,6 +122,18 @@ const SubAdminPage = () => {
             </div>
           </div>
           {/* agent/admin search end */}
+
+           {/* show Complain box start */}
+           {currentSelected.status && (
+            <div id="complain">
+              <Complain
+                from="subAdmin"
+                currentSelected={currentSelected}
+                setCurrentSelected={setCurrentSelected}
+              />
+            </div>
+          )}
+          {/* show Complain box end */}
 
           {/* show search result start */}
 
@@ -332,7 +348,24 @@ const SubAdminPage = () => {
                           <td className="px-3 py-3 text-center">
                             {adminC?.profile?.phone}
                           </td>
-                          <td className="px-3 py-3 font-bold text-center cursor-pointer hover:underline hover:text-blue-800">
+                          <td
+                           onClick={() => {
+                            setCurrentSelected({
+                              obj: {},
+                              status: false,
+                            });
+
+                            window.scrollTo({
+                              top: 500,
+                              behavior: "smooth", // This smooth scrolls the page to the top
+                            });
+
+                            setCurrentSelected({
+                              obj: adminC,
+                              status: true,
+                            });
+                          }}
+                          className="px-3 py-3 font-bold text-center cursor-pointer hover:underline hover:text-blue-800">
                             অভিযোগ
                           </td>
                         </tr>

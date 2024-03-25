@@ -8,71 +8,60 @@ const Complain = (props) => {
     const [upLevel2,setUpLevel2]=useState({})
     const [upLevel3,setUpLevel3]=useState({})
     const [trigger,setTrigger]=useState(false)
+    const [count,setCount]=useState(0)
 
-
-    console.log(props?.currentSelected?.obj,'current');
+    console.log(props?.currentSelected?.obj,'sent');
 
     const fetchCurrentObjDetails=async()=>{
+      setUpLevel1({})
        await axios.get(`${base_url}/admins/${props?.currentSelected?.obj?.input_id}`)
         .then(res=>{
             if(res?.data?.msg=='success'){
-                console.log(res?.data?.admin,'new');
+                console.log(res?.data?.admin,'sented details');
                 setUpLevel1(res?.data?.admin?.super)
             }
         })  
     }
 
     const fetchLevel1Data=async()=>{
-        if(upLevel1?.input_id){
-            await axios.get(`${base_url}/admins/${props?.currentSelected?.obj?.input_id_id}`)
+        console.log('click',upLevel1?.input_id);
+            if(upLevel1?.id){
+              await axios.get(`${base_url}/admins/${upLevel1?.input_id}`)
             .then(res=>{
                 if(res?.data?.msg=='success'){
                     console.log(res?.data?.admin,'level1 details');
                     setUpLevel2(res?.data?.admin?.super)
                 }
             })
-            
-        }
+            }
     }
 
     const fetchLevel2Data=async()=>{
-        if(upLevel2?.input_id){
+      console.log('click',upLevel2?.input_id);
+           if(upLevel2?.id){
             await axios.get(`${base_url}/admins/${upLevel2?.input_id}`)
             .then(res=>{
                 if(res?.data?.msg=='success'){
                     console.log(res?.data?.admin,'level2 details');
                     setUpLevel3(res?.data?.admin?.super)
                 }
-            })
-        }
+            }) 
+           }     
     }
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            // Fetch current object details
-            await fetchCurrentObjDetails();
+  useEffect(()=>{
+  //  setUpLevel1({})
+   setUpLevel2({})
+   setUpLevel3({})
+fetchCurrentObjDetails()
+setCount(0)
+  },[props?.currentSelected?.obj?.id])
 
-            await new Promise((resolve) => setTimeout(resolve, 2000));
+  console.log(upLevel1,'levele1');
+    console.log(upLevel2,'level2');
+    console.log(upLevel3,'level3');
     
-            // Fetch level 1 data after fetchCurrentObjDetails completes
-            await fetchLevel1Data();
-
-            await new Promise((resolve) => setTimeout(resolve, 3000));
     
-            // Fetch level 2 data after fetchLevel1Data completes
-            await fetchLevel2Data();
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-        };
-    
-        fetchData();
-      }, [props?.currentSelected]);
-
-
-    console.log(upLevel1,'level1');
-    // console.log(upLevel2,'level2');
   return (
     <div>
        <div className="w-[80%] mx-auto bg-white  p-5 my-10">
@@ -241,6 +230,14 @@ const Complain = (props) => {
 
                         )
                     }
+                    <p className="cursor-pointer text-blue-800" onClick={()=>{
+                      if(count==0){
+                        fetchLevel1Data()
+                        setCount(count+1)
+                      }else{
+                        fetchLevel2Data()
+                      }
+                    }}>See more...</p>
                     </div>
                         )
                     }

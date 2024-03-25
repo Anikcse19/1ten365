@@ -1,3 +1,4 @@
+import Complain from "@/components/shared/Complain/Complain";
 import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import axios from "axios";
@@ -24,6 +25,7 @@ const Agent = () => {
   const [admin,setAdmin]=useState({})
   const [subAdmin,setSubAdmin]=useState({})
   const [superAgent,setSuperAgent]=useState({})
+  const [currentSelected,setCurrentSelected]=useState({obj:{},status:false})
   
   const router = useRouter();
 
@@ -73,7 +75,9 @@ const Agent = () => {
       });
   };
 
-  console.log(superAgents,'aaa');
+  console.log(currentSelected,'aaa');
+
+  // const complainElement=document.getElementById('complain')
 
   return (
     <Layout>
@@ -123,6 +127,16 @@ const Agent = () => {
             </div>
           </div>
           {/* agent/admin search end */}
+
+          {/* show Complain box start */}
+          {
+            currentSelected.status && (
+              <div id="complain">
+                <Complain currentSelected={currentSelected} setCurrentSelected={setCurrentSelected}/>
+              </div>
+            )
+          }
+          {/* show Complain box end */}
 
           {/* show search result start */}
           {userNotFound && (
@@ -351,7 +365,17 @@ const Agent = () => {
                           </td>
                           <td
                             onClick={() => {
-                              setComplain(adminC);
+                              setCurrentSelected({
+                                obj:{},status:false
+                              })
+                              
+                              window.scrollTo({
+                                top: 500,
+                                behavior: 'smooth' // This smooth scrolls the page to the top
+                              });
+                              setCurrentSelected({
+                                obj:adminC,status:true
+                              });
                             }}
                             className="px-3 py-3 font-bold text-center cursor-pointer hover:underline hover:text-blue-800"
                           >

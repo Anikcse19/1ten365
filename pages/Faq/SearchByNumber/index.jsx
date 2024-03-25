@@ -1,6 +1,7 @@
 import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
 
@@ -11,6 +12,7 @@ const searchByNumber = () => {
     const [number,setNumber]=useState("")
     const [searchedResult,setSearchedResult]=useState({})
     const [userNotFound, setUserNotFound] = useState(false);
+    const router=useRouter()
 
     const handleAdminSearch = () => {
       setUserNotFound(false);

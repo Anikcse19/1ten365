@@ -3,8 +3,8 @@ import logo from "../../../public/images/1ten365logo.png";
 
 const FooterSection = () => {
   return (
-    <div className="bg-black py-8">
-      <div className="relative bg-slate-900 w-[320px] py-5 flex justify-center items-center ml-[-30px]">
+    <div className="bg-black lg:py-8">
+      <div className="relative bg-slate-900 lg:w-[320px] py-5 flex justify-center items-center lg:ml-[-30px]">
         <Image
           src={logo}
           alt="Image"

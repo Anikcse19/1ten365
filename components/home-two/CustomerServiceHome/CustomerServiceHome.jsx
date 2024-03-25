@@ -46,9 +46,9 @@ const CustomerServiceHome = () => {
   ];
 
   return (
-    <div className="w-[76%] mx-auto py-5">
-      <div className="flex">
-        <div className="w-[70%]">
+    <div className="lg:w-[76%] mx-auto px-5 lg:px-0 py-5">
+      <div className="flex flex-col lg:flex-row">
+        <div className=" lg:w-[70%]">
           <div className="border border-slate-300">
             {/* Main Poster  */}
             <div className="border-b border-slate-300">
@@ -61,8 +61,10 @@ const CustomerServiceHome = () => {
                   height={1080}
                   className="object-cover w-full h-full"
                 ></Image>
-                <div className="bg-black bg-opacity-[30%] w-full h-[45px] absolute left-0 top-0 flex items-center px-5">
-                  <p className="uppercase text-white">In the spotlight</p>
+                <div className="bg-black bg-opacity-[30%] w-full h-[30px] lg:h-[45px] absolute left-0 top-0 flex items-center px-5">
+                  <p className="uppercase text-white text-sm lg:text-base">
+                    In the spotlight
+                  </p>
                 </div>
 
                 <Link
@@ -74,16 +76,16 @@ const CustomerServiceHome = () => {
               </div>
 
               <div className="p-5">
-                <h1 className="text-[30px] font-semibold hover:text-red-700">
+                <h1 className=" lg:text-[30px] font-semibold hover:text-red-700">
                   কাস্টমার সার্ভিস লিষ্ট
                 </h1>
 
-                <h2 className="mt-10 text-[25px] text-center font-semibold">
+                <h2 className=" mt-4 lg:mt-10 lg:text-[25px] text-center font-semibold">
                   1TEN CUSTOMER SERVICE LIST
                 </h2>
 
                 <div>
-                  <button className="mt-8 text-sm bg-gray-100 hover:bg-gray-300 w-full py-2 border border-slate-400">
+                  <button className=" mt-4 lg:mt-8 text-sm bg-gray-100 hover:bg-gray-300 w-full py-1.5 lg:py-2 border border-slate-400">
                     Read More...কাস্টমার সার্ভিস লিষ্ট
                   </button>
                 </div>
@@ -92,7 +94,7 @@ const CustomerServiceHome = () => {
 
             {/* Service List */}
             <div className="p-5">
-              <div className="flex items-center gap-4">
+              <div className="grid lg:rid-cols-3 items-center gap-4">
                 {AgentDatas.map((item, i) => (
                   <ServiceCard item={item} key={i} />
                 ))}
@@ -101,7 +103,7 @@ const CustomerServiceHome = () => {
           </div>
         </div>
 
-        <div className="w-[30%] border-r">
+        <div className=" lg:w-[30%] lg:border-r">
           <div className="bg-black bg-opacity-[10%] w-full h-[45px] px-5 flex justify-center items-center gap-x-2">
             <IoMenuOutline />
             <p className="uppercase ">More News</p>
@@ -150,14 +152,15 @@ const CustomerServiceHome = () => {
       {/* Random Master Agent */}
       <RandomMasterAgent />
 
-      <div className="flex border">
-        <div className="w-[70%]">
-          {/* FAQ Section */}
+      {/* FAQ Section */}
+      <div className="flex flex-col lg:flex-row border">
+        <div className="lg:w-[70%]">
           <FAQSection />
         </div>
-        <div className="w-[30%] bg-gray-100"></div>
+        <div className="lg:w-[30%] bg-gray-100"></div>
       </div>
 
+      {/* Footer Section */}
       <FooterSection />
     </div>
   );

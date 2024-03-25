@@ -1,12 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { TiArrowSortedDown } from "react-icons/ti";
 
 const Navbar = () => {
-  const menus = [
-    { title: "হোম পেইজ", url: "/Admins/HomePage" },
-    { title: "সাধারণ প্রশ্ন উত্তর", url: "" },
-    { title: "এজেন্ট লিস্ট", url: "" },
-  ];
+  const route = useRouter();
 
   const generalQsns = [
     { title: "1Ten প্রক্সী লিঙ্ক", url: "/Faq/ProxyLink" },
@@ -31,7 +28,13 @@ const Navbar = () => {
       <div className="w-[76%] mx-auto">
         <div className="flex items-center gap-x- w-full h-[50px]">
           <ul className="h-[50px] flex items-center">
-            <li className="w-[150px] h-full font-semibold flex justify-center items-center hover:bg-slate-900 hover:text-white border-r">
+            <li
+              className={`w-[150px] h-full font-semibold flex justify-center items-center hover:bg-slate-900 hover:text-white border-r ${
+                route.pathname === "/Admins/HomePage"
+                  ? "bg-slate-900 text-white"
+                  : ""
+              }`}
+            >
               <Link href="/Admins/HomePage">হোম পেইজ</Link>
             </li>
 

@@ -1,3 +1,4 @@
+import RequireAuth from "@/components/PrivateRoute/RequireAuth";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import DashboardLayout from "..";
@@ -203,4 +204,4 @@ const AddAdmin = () => {
   );
 };
 
-export default AddAdmin;
+export default RequireAuth(AddAdmin);

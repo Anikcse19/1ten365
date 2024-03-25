@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 const DashboardLayout = ({ children }) => {
   const router = useRouter();
-  console.log(router.pathname);
+  
 
   return (
     <div className="max-w-screen min-h-screen flex lg:flex-row flex-col">

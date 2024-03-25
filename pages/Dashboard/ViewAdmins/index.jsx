@@ -1,3 +1,4 @@
+import RequireAuth from "@/components/PrivateRoute/RequireAuth";
 import base_url from "@/utils/Url";
 import axios from "axios";
 import Link from "next/link";
@@ -8,7 +9,7 @@ import DashboardLayout from "..";
 const ls = typeof window != "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
 
-export default function ViewAdmins() {
+const ViewAdmins=()=> {
   const tableItems = [
     {
       avatar:
@@ -68,7 +69,7 @@ export default function ViewAdmins() {
         }
       );
       const data = await response.json();
-      console.log(data);
+      
       setDatas(data);
     } catch (error) {
       console.log(error);
@@ -80,7 +81,7 @@ export default function ViewAdmins() {
   }, []);
 
   const handleDelete = (adminId) => {
-    console.log(adminId);
+  
   
       try {
         const formData=new FormData()
@@ -185,3 +186,4 @@ export default function ViewAdmins() {
     </DashboardLayout>
   );
 }
+export default RequireAuth(ViewAdmins)

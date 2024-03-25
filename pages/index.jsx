@@ -27,7 +27,7 @@ export default function Home() {
   },[])
 
   return (
-    <div className="bg-stone-500 py-10">
+    <div className="bg-gray-700 py-10">
       <>
       <div className="hidden lg:block">
         <Logo />

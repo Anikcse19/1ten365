@@ -25,7 +25,7 @@ const RandomMasterAgent = () => {
       .catch((error) => console.error("Error fetching data:", error)); // Handle fetch errors
   }, []);
 
-  console.log(admins);
+ 
 
   return (
     <div className="border mt-1">

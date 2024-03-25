@@ -38,11 +38,11 @@ const CustomerServiceHome = () => {
   ];
 
   const faqs = [
-    { title: "1TEN তে কিভাবে লেনদেন করবেন?", url: "", img: payment },
-    { title: "কিভাবে একাউন্ট খুলবেন?", url: "", img: createAccount },
+    { title: "1TEN তে কিভাবে লেনদেন করবেন?", url: "/Faq/HowToTransaction", img: payment },
+    { title: "কিভাবে একাউন্ট খুলবেন?", url: "/Faq/OpenAccount", img: createAccount },
     {
       title: "একাউন্ট খোলার নিয়ম বা শর্ত গুলো কি কি?",
-      url: "",
+      url: "/Faq/Condition",
       img: conditions,
     },
   ];
@@ -116,6 +116,7 @@ const CustomerServiceHome = () => {
             {faqs.map((item, i) => (
               <div key={i} className="flex items-center gap-x-5 border-t p-5">
                 <Image
+                onClick={()=>router.push(`${item?.url}`)}
                   src={item.img}
                   alt="Image"
                   width={80}
@@ -133,7 +134,7 @@ const CustomerServiceHome = () => {
                     <p className="text-xs">24.03.24</p>
                   </div>
 
-                  <p className="mt-1.5 font-semibold hover:text-red-600 text-xs">
+                  <p onClick={()=>router.push(`${item?.url}`)} className="mt-1.5 font-semibold hover:text-red-600 text-xs cursor-pointer">
                     {item.title}
                   </p>
                 </div>

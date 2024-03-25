@@ -17,10 +17,10 @@ const FAQSection = () => {
 
   const router=useRouter()
   const faqs = [
-    { title: "1TEN তে কিভাবে লেনদেন করবেন?", url: "", img: payment },
-    { title: "কিভাবে একাউন্ট খুলবেন?", url: "", img: createAccount },
-    { title: "একাউন্ট খোলার নিয়ম বা শর্ত গুলো কি কি?", url: "", img: conditions },
-    { title: "1TEN ফেইসবুক গ্রুপ লিঙ্ক কোন টা?", url: "", img: facebookGroup },
+    { title: "1TEN তে কিভাবে লেনদেন করবেন?", url: "/Faq/HowToTransaction", img: payment },
+    { title: "কিভাবে একাউন্ট খুলবেন?", url: "/Faq/OpenAccount", img: createAccount },
+    { title: "একাউন্ট খোলার নিয়ম বা শর্ত গুলো কি কি?", url: "/Faq/Condition", img: conditions },
+    { title: "1TEN ফেইসবুক গ্রুপ লিঙ্ক কোন টা?", url: "/Faq/FbGroup", img: facebookGroup },
     { title: "কিভাবে আমি 1TEN এ এজেন্ট হতে পারি?",  url: "/Faq/HowToAgent", img: becomeAgent },
     { title: "এজেন্ট এর বিরুদ্ধে কিভাবে অভিযোগ করবেন?", url: "/Faq/ComplainAgent", img: complain },
   ];

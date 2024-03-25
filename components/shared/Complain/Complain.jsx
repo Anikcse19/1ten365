@@ -10,26 +10,26 @@ const Complain = (props) => {
     const [trigger,setTrigger]=useState(false)
     const [count,setCount]=useState(0)
 
-    console.log(props?.currentSelected?.obj,'sent');
+   
 
     const fetchCurrentObjDetails=async()=>{
       setUpLevel1({})
        await axios.get(`${base_url}/admins/${props?.currentSelected?.obj?.input_id}`)
         .then(res=>{
             if(res?.data?.msg=='success'){
-                console.log(res?.data?.admin,'sented details');
+               
                 setUpLevel1(res?.data?.admin?.super)
             }
         })  
     }
 
     const fetchLevel1Data=async()=>{
-        console.log('click',upLevel1?.input_id);
+       
             if(upLevel1?.id){
               await axios.get(`${base_url}/admins/${upLevel1?.input_id}`)
             .then(res=>{
                 if(res?.data?.msg=='success'){
-                    console.log(res?.data?.admin,'level1 details');
+             
                     setUpLevel2(res?.data?.admin?.super)
                 }
             })
@@ -37,12 +37,12 @@ const Complain = (props) => {
     }
 
     const fetchLevel2Data=async()=>{
-      console.log('click',upLevel2?.input_id);
+     
            if(upLevel2?.id){
             await axios.get(`${base_url}/admins/${upLevel2?.input_id}`)
             .then(res=>{
                 if(res?.data?.msg=='success'){
-                    console.log(res?.data?.admin,'level2 details');
+                   
                     setUpLevel3(res?.data?.admin?.super)
                 }
             }) 
@@ -57,9 +57,6 @@ fetchCurrentObjDetails()
 setCount(0)
   },[props?.currentSelected?.obj?.id])
 
-  console.log(upLevel1,'levele1');
-    console.log(upLevel2,'level2');
-    console.log(upLevel3,'level3');
     
     
   return (

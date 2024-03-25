@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
-import DashboardLayout from "..";
+import RequireAuth from "@/components/PrivateRoute/RequireAuth";
+import base_url from "@/utils/Url";
+import axios from "axios";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import DashboardLayout from "..";
 
 const ls = typeof window != "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
@@ -67,7 +71,7 @@ const CustomService = () => {
   };
 
   const handleCreateCustomerService = () => {
-    console.log("clicked");
+    
 
     // const formData=new FormData()
     // formData.append("name",customerName)
@@ -89,7 +93,13 @@ const CustomService = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => console.log(res?.data));
+      .then((res) => {
+        if(res?.data?.msg=='success'
+        ){
+          toast.success('created customer service')
+          router.push('/Admins/CustomerService')
+        }
+      });
   };
   const inputFieldSTyle =
     "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring";
@@ -137,7 +147,7 @@ const CustomService = () => {
                 value={customerPhone}
                 onChange={(e) => setCustomerPhone(e.target.value)}
                 className={inputFieldSTyle}
-                type="text"
+                type="number"
                 placeholder="Type your Phone No"
               />
             </div>
@@ -147,7 +157,7 @@ const CustomService = () => {
                 value={customerWp}
                 onChange={(e) => setCustomerWP(e.target.value)}
                 className={inputFieldSTyle}
-                type="text"
+                type="number"
                 placeholder="Type your What's App No"
               />
             </div>
@@ -167,4 +177,4 @@ const CustomService = () => {
   );
 };
 
-export default CustomService;
+export default RequireAuth(CustomService);

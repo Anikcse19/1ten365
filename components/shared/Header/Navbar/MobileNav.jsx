@@ -19,6 +19,9 @@ const MobileNav = () => {
     setIsOpen((prevState) => !prevState);
   };
 
+  const ls=typeof window !=="undefined" ? window.localStorage :null
+  const token=ls?.getItem('token') 
+
   const menus = [
     { title: "হোম", url: "/" },
     { title: "কাস্টমার সার্ভিস", url: "/Admins/CustomerService" },
@@ -27,6 +30,7 @@ const MobileNav = () => {
     { title: "সাব-এডমিন", url: "/Admins/SubAdmin" },
     { title: "সুপার-এজেন্ট", url: "/Admins/SuperAgent" },
     { title: "এজেন্ট", url: "/Admins/Agent" },
+    token && { title: "Dashboard", url: "/Dashboard/ViewAdmins" },
   ];
 
   return (

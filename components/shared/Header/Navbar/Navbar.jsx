@@ -4,7 +4,9 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const router = useRouter();
   const { pathname } = router;
- 
+
+  const ls=typeof window !=="undefined" ? window.localStorage :null
+const token=ls?.getItem('token') 
   return (
     <div className="w-full">
       <div className="w-[80%] bg-gray-300 mx-auto py-1">
@@ -62,12 +64,17 @@ const Navbar = () => {
             এজেন্ট
           </Link>
 
-          <Link
+{
+  token && (
+<Link
             className="text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded"
-            href="/Dashboard"
+            href="/Dashboard/ViewAdmins"
           >
-            DB
+            Dashboard
           </Link>
+  )
+}
+          
         </div>
       </div>
     </div>

@@ -79,7 +79,7 @@ const Agent = () => {
       });
   };
 
-  console.log(currentSelected,'aaa');
+  
 
   // const complainElement=document.getElementById('complain')
 

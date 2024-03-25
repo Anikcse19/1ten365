@@ -42,7 +42,7 @@ const OpenAccount = () => {
                 <span className="mt-2 block font-bold text-base md:text-xl">
                   আমাদের এজেন্ট লিষ্ট দেখতে নিচের লিঙ্ক এ ক্লিক করুনঃ{" "}
                   <p className="text-red-600 font-bold text-base md:text-lg">
-                    https://allagentlist.com/ma.php
+                    {/* https://allagentlist.com/ma.php */}
                   </p>
                 </span>
               </div>
@@ -67,12 +67,12 @@ const OpenAccount = () => {
               <span className="inline">
                 অন্যান্য সাহায্যের জন্যঃ তথ্যাদি এবং সাহায্যের জন্য হোয়াটসাপ
                 নাম্বারঃ{" "}
-                <p className="text-red-600">+15714028916 (আকাশ মালিক)</p>
+                {/* <p className="text-red-600">+15714028916 (আকাশ মালিক)</p> */}
               </span>
               <span>
                 ফেসবুক গ্রুপের লিঙ্কঃ{" "}
                 <p className="text-red-600 cursor-pointer hover:underline">
-                  https://www.facebook.com/groups/1ten.live
+                  {/* https://www.facebook.com/groups/1ten.live */}
                 </p>
               </span>
               <span>
@@ -86,7 +86,7 @@ const OpenAccount = () => {
               <span>
                 তাদের নাম্বার গুলো জানতে নিচের লিঙ্কে ক্লিক করুনঃ{" "}
                 <p className="text-red-600 cursor-pointer hover:underline">
-                  https://allagentlist.com/cs.php
+                  {/* https://allagentlist.com/cs.php */}
                 </p>
               </span>
               <span>

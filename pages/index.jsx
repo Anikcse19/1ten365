@@ -53,7 +53,7 @@ export default function Home() {
           {/* body */}
           <div className="flex justify-center  items-center w-full h-full bg-gray-600 py-10 md:py-16">
             <div className="p-3 bg-white">
-              <div className="bg-gray-500 py-3 w-[200px] px-2">
+              <div className="bg-gray-500 py-3 w-[300px] px-2">
                 <div className="flex flex-col gap-2 justify-center">
                   {/* agent id */}
                   <div className="flex justify-between items-center">

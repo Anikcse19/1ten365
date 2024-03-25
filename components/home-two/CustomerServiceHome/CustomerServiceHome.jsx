@@ -1,35 +1,37 @@
 import Image from "next/image";
-import React from "react";
-import img1 from "../../../public/images/home img1.jpg";
-import CustomerServiceList from "../../../public/images/1ten365/customer service.png";
-import img2 from "../../../public/images/home img3.jpg";
 import Link from "next/link";
-import ServiceCard from "./ServiceCard";
-import RandomMasterAgent from "./RandomMasterAgent";
+import { useRouter } from "next/router";
+import { IoMenuOutline } from "react-icons/io5";
+import createNewAccount from "../../../public/images/1ten365/10TEN365 ACCOUNT.png";
+import conditions from "../../../public/images/1ten365/1ten T&C.png";
+import CustomerServiceList from "../../../public/images/1ten365/customer service.png";
+import createAccount from "../../../public/images/1ten365/how to create account.png";
+import payment from "../../../public/images/1ten365/payment method.png";
+import subAdmin from "../../../public/images/1ten365/sub admin list.png";
+import superAgent from "../../../public/images/1ten365/super agent list.png";
 import FAQSection from "./FAQSection";
 import FooterSection from "./FooterSection";
-import { IoMenuOutline } from "react-icons/io5";
-import superAgent from "../../../public/images/1ten365/super agent list.png";
-import payment from "../../../public/images/1ten365/payment method.png";
-import createAccount from "../../../public/images/1ten365/how to create account.png";
-import conditions from "../../../public/images/1ten365/1ten T&C.png";
-import createNewAccount from "../../../public/images/1ten365/10TEN365 ACCOUNT.png";
-import subAdmin from "../../../public/images/1ten365/sub admin list.png";
+import RandomMasterAgent from "./RandomMasterAgent";
+import ServiceCard from "./ServiceCard";
 
 const CustomerServiceHome = () => {
+  const router=useRouter()
   const AgentDatas = [
     {
       title: "এজেন্ট লিষ্টঃ",
+      link:'/Admins/Agent',
       des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
       img: superAgent,
     },
     {
       title: "সুপার এজেন্ট লিষ্টঃ",
+      link:'/Admins/SuperAgent',
       des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
       img: superAgent,
     },
     {
       title: "সাব এডমিন লিষ্টঃ",
+      link:'/Admins/SubAdmin',
       des: "এজেন্ট দের সাথে লেনদেন এর আগে 1TEN নিয়ম গুলো জেনে নিন!! **প্রতারনার হাত থেকে বাচতে",
       img: subAdmin,
     },
@@ -83,7 +85,7 @@ const CustomerServiceHome = () => {
                 </h2>
 
                 <div>
-                  <button className="mt-8 text-sm bg-gray-100 hover:bg-gray-300 w-full py-2 border border-slate-400">
+                  <button onClick={()=>router.push('/Admins/CustomerService')} className="mt-8 text-sm bg-gray-100 hover:bg-gray-300 w-full py-2 border border-slate-400">
                     Read More...কাস্টমার সার্ভিস লিষ্ট
                   </button>
                 </div>

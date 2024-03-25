@@ -1,3 +1,4 @@
+import FooterSection from "@/components/home-two/CustomerServiceHome/FooterSection"
 import Layout from "@/components/shared/Layout/Layout"
 import Image from "next/image"
 import proxyPoster from '../../../public/images/1ten365/proxy link.png'
@@ -7,22 +8,22 @@ const ProxyLink = () => {
         {
             id:1,
             title:'1ten365 সাইটের মেইন লিঙ্কঃ',
-            link:'www.velki.live'
+            // link:'www.velki.live'
         },
         {
             id:2,
             title:'1ten365 সাইটের মেইন লিঙ্কঃ',
-            link:'www.nayaludis.com'
+            // link:'www.nayaludis.com'
         },
         {
             id:3,
             title:'1ten365 সাইটের প্রক্সী লিঙ্ক ১ঃ',
-            link:'www.velki365.live'
+            // link:'www.velki365.live'
         },
         {
             id:4,
             title:'1ten365 সাইটের প্রক্সী লিঙ্ক ২ঃ',
-            link:'www.velkiex123.live'
+            // link:'www.velkiex123.live'
         },
     ]
   return (
@@ -34,7 +35,7 @@ const ProxyLink = () => {
             <div className="w-[100%] mx-auto p-5 my-10">
           <Image width={400} height={200} className="w-[100%]" src={proxyPoster} alt="poster"/>
           </div>
-                <p className="text-base md:text-4xl font-bold text-red-600">ভেল্কি প্রক্সি লিঙ্ক</p>
+                <p className="text-base md:text-4xl font-bold text-red-600">1ten প্রক্সি লিঙ্ক</p>
 
                 {/* proxy links */}
                 <div className="border-l-4 border-gray-600 mt-12">
@@ -61,6 +62,9 @@ const ProxyLink = () => {
         </div>
 
       
+    <div className="w-[90%] mx-auto ">
+    <FooterSection/>
+    </div>
     </div>
   </Layout>
   )

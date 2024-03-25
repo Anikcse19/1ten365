@@ -1,17 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { FaThList } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoGridSharp } from "react-icons/io5";
-import img1 from "../../../public/images/1ten365/proxy link.png";
-import payment from "../../../public/images/1ten365/payment method.png";
-import createAccount from "../../../public/images/1ten365/how to create account.png";
 import conditions from "../../../public/images/1ten365/1ten T&C.png";
-import facebookGroup from "../../../public/images/1ten365/facebook page.png";
 import becomeAgent from "../../../public/images/1ten365/agent hote chai.png";
-import becomeMA from "../../../public/images/1ten365/how to became a master agent.png";
 import complain from "../../../public/images/1ten365/complain center.png";
+import facebookGroup from "../../../public/images/1ten365/facebook page.png";
+import becomeMA from "../../../public/images/1ten365/how to became a master agent.png";
+import createAccount from "../../../public/images/1ten365/how to create account.png";
+import payment from "../../../public/images/1ten365/payment method.png";
+import img1 from "../../../public/images/1ten365/proxy link.png";
 
 
 const FAQSection = () => {
@@ -72,7 +71,7 @@ const FAQSection = () => {
         <div className="mt-8">
           <p className="border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
             <span>1TEN সাইটের মেইন লিঙ্কঃ</span>
-            <span className=" text-red-600">www.velki.live</span>
+            <span className=" text-red-600">www.1ten365.live</span>
           </p>
           <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
             <span>1TEN সাইটের মেইন লিঙ্কঃ</span>
@@ -80,11 +79,11 @@ const FAQSection = () => {
           </p>
           <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
             <span>1TEN সাইটের প্রক্সী লিঙ্ক ১ঃ</span>
-            <span className=" text-red-600">www.velki365.live</span>
+            <span className=" text-red-600">www.1ten365.live</span>
           </p>
           <p className="mt-1 border-b flex justify-between items-center pb-1 text-[12px] font-semibold pr-20">
             <span>1TEN সাইটের প্রক্সী লিঙ্ক ২ঃ</span>
-            <span className=" text-red-600">www.velkiex123.live</span>
+            <span className=" text-red-600">www.1ten365.live</span>
           </p>
         </div>
       </div>

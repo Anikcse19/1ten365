@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { IoGridSharp } from "react-icons/io5";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { FaThList } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { IoGridSharp } from "react-icons/io5";
 import img1 from "../../../public/images/home img2.jpg";
-import Link from "next/link";
-import Image from "next/image";
 
 const ls = typeof window != "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
 
 const RandomMasterAgent = () => {
   const [admins, setAdmins] = useState();
+  const router=useRouter()
   useEffect(() => {
     fetch(`https://test.aglist1ten365.com/api/admins?type=এজেন্ট`, {
       headers: {
@@ -40,8 +42,8 @@ const RandomMasterAgent = () => {
       </div>
 
       <div className="bg-slate-200 h-[55px] flex items-center px-5">
-        <button className="flex items-center uppercase font-semibold gap-x-1.5 border px-2.5 bg-red-700 py-1 text-white">
-          Master Agent <FaArrowRightLong />
+        <button onClick={()=>router.push('/Admins/Agent')} className="flex items-center uppercase font-semibold gap-x-1.5 border px-2.5 bg-red-700 py-1 text-white">
+         Agent <FaArrowRightLong />
         </button>
       </div>
 
@@ -62,7 +64,7 @@ const RandomMasterAgent = () => {
                 href=""
                 className="absolute -bottom-2.5 left-5 bg-white border border-slate-500 px-2 py-[2px] text-xs hover:bg-red-700 hover:text-white uppercase"
               >
-                Master Agent
+                Agent
               </Link>
             </div>
 
@@ -77,7 +79,7 @@ const RandomMasterAgent = () => {
                 </span>
               </p>
               <p className="mt-5 text-center">
-                মাষ্টার এজেন্ট আইডিঃ {item?.profile?.user_id} <br />{" "}
+                এজেন্ট আইডিঃ {item?.profile?.user_id} <br />{" "}
                 হোয়াটসঅ্যাপ নাম্বারঃ <br />
                 <span className="text-red-700 font-semibold">
                   {item?.profile?.phone}

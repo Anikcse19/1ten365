@@ -1,3 +1,4 @@
+import FooterSection from "@/components/home-two/CustomerServiceHome/FooterSection"
 import Layout from "@/components/shared/Layout/Layout"
 import Image from "next/image"
 import openAccPoster from '../../../public/images/1ten365/how to create account.png'
@@ -28,12 +29,12 @@ const OpenAccount = () => {
 
 
                 <div className="my-10">
-                    <p className="font-medium">এই এজেন্ট লিষ্ট এর বাইরে কারো সাথে লেনদেন করলে আপনাকে নিজ দ্বায়িত্বে লেনদেন করতে হবে। লিষ্ট এর বাইরে কোন এজেন্ট এর দায়ভার ভেল্কি নিবে না এবং লিষ্ট এর এজেন্ট দের সব দায়ভার ভেল্কি কোম্পানীর। এজেন্ট লিষ্ট এর এজেন্ট দের সাথে ইউজার দের শুধু মাত্র হোয়াটসাপ এর মাধ্যমে যোগাযোগ করতে হবে। হোয়াটসাপ ছাড়া অন্য কোন মাধ্যমে যোগাযোগ করলে বা লেনদেন করলে তা গ্রহনযোগ্য হবে না। হোয়াটসাপ এ যোগাযোগ করতে হলে এজেন্ট লিস্টে হোয়াটসাপ আইকন উপরে ক্লিক করুন অবথা ফোন নাম্বার টি মোবাইলে সেভ করে তাকে হোয়াটসাপ এ মসেজ পাঠাতে পারবেন। হোয়াটসাপ এপ টি আপনার মোবাইলে আগে থেকেই থাকতে হবে। না থাকলে গুগুল প্লে থেকে ইন্সটল করে নিন।</p>
+                    <p className="font-medium">এই এজেন্ট লিষ্ট এর বাইরে কারো সাথে লেনদেন করলে আপনাকে নিজ দ্বায়িত্বে লেনদেন করতে হবে। লিষ্ট এর বাইরে কোন এজেন্ট এর দায়ভার 1ten নিবে না এবং লিষ্ট এর এজেন্ট দের সব দায়ভার 1ten কোম্পানীর। এজেন্ট লিষ্ট এর এজেন্ট দের সাথে ইউজার দের শুধু মাত্র হোয়াটসাপ এর মাধ্যমে যোগাযোগ করতে হবে। হোয়াটসাপ ছাড়া অন্য কোন মাধ্যমে যোগাযোগ করলে বা লেনদেন করলে তা গ্রহনযোগ্য হবে না। হোয়াটসাপ এ যোগাযোগ করতে হলে এজেন্ট লিস্টে হোয়াটসাপ আইকন উপরে ক্লিক করুন অবথা ফোন নাম্বার টি মোবাইলে সেভ করে তাকে হোয়াটসাপ এ মসেজ পাঠাতে পারবেন। হোয়াটসাপ এপ টি আপনার মোবাইলে আগে থেকেই থাকতে হবে। না থাকলে গুগুল প্লে থেকে ইন্সটল করে নিন।</p>
                 </div>
 
                 <div className="my-10 flex flex-col gap-2 font-semibold">
                     <span className="inline">অন্যান্য সাহায্যের জন্যঃ তথ্যাদি এবং সাহায্যের জন্য হোয়াটসাপ নাম্বারঃ <p className="text-red-600">+15714028916 (আকাশ মালিক)</p></span>
-                    <span>ফেসবুক গ্রুপের লিঙ্কঃ <p className="text-red-600 cursor-pointer hover:underline">https://www.facebook.com/groups/velki.live</p></span>
+                    <span>ফেসবুক গ্রুপের লিঙ্কঃ <p className="text-red-600 cursor-pointer hover:underline">https://www.facebook.com/groups/1ten.live</p></span>
                     <span>এই ফেসবুক গ্রুপ এবং একটি ব্যাকআপ গ্রুপ ছাড়া আমাদের আর কোন ফেসবুক গ্রুপ নেই।</span>
                     <span>এছাড়া আপনারা আমাদের কাস্টমার সার্ভিস এর সাথে সরাসরি যোগাযোগ করতে পারেন।</span>
                     <span>তাদের নাম্বার গুলো জানতে নিচের লিঙ্কে ক্লিক করুনঃ <p className="text-red-600 cursor-pointer hover:underline">https://allagentlist.com/cs.php</p></span>
@@ -42,6 +43,9 @@ const OpenAccount = () => {
                 </div>
             </div>
         </div>     
+    </div>
+    <div className="w-[90%] mx-auto ">
+    <FooterSection/>
     </div>
     </Layout>
   )

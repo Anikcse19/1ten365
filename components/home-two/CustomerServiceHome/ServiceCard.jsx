@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { useForm } from "react-hook-form";
 
 const ServiceCard = ({item}) => {
 
@@ -36,7 +34,7 @@ const ServiceCard = ({item}) => {
       </p>
 
       <div className="w-full">
-        <button className="mt-8 text-sm bg-gray-100 hover:bg-gray-300 w-full py-2 border border-slate-400">
+        <button onClick={()=>router.push(item?.link)} className="mt-8 text-sm bg-gray-100 hover:bg-gray-300 w-full py-2 border border-slate-400">
           Read More...কাস্টমার সার্ভিস লিষ্ট
         </button>
       </div>

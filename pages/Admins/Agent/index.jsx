@@ -1,3 +1,4 @@
+import FooterSection from "@/components/home-two/CustomerServiceHome/FooterSection";
 import Complain from "@/components/shared/Complain/Complain";
 import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
@@ -257,7 +258,7 @@ const Agent = () => {
               এজেন্ট দের সাথে লেনদেন এর আগে 1ten365 এর নিয়ম গুলো জেনে নিন!!
             </p>
             <p>
-              **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন ভেল্কি সাইটঃ
+              **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন 1ten সাইটঃ
               1ten365.com **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ
               বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না। **এজেন্ট
               পাসোয়ার্ড পরিবর্তন করে দিলে - আপনি একাউন্টে ঢুকে আবার পাসোয়ার্ড
@@ -373,6 +374,7 @@ const Agent = () => {
                                 top: 500,
                                 behavior: 'smooth' // This smooth scrolls the page to the top
                               });
+                              
                               setCurrentSelected({
                                 obj:adminC,status:true
                               });
@@ -392,6 +394,9 @@ const Agent = () => {
           {/* admin table end */}
         </div>
       </div>
+      <div className="w-[90%] mx-auto mb-2">
+    <FooterSection/>
+    </div>
     </Layout>
   );
 };

@@ -1,3 +1,4 @@
+import FooterSection from "@/components/home-two/CustomerServiceHome/FooterSection";
 import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import { useEffect, useState } from "react";
@@ -36,7 +37,7 @@ const SiteAdminPage = () => {
         {/* user alert start*/}
         <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
           <p className="text-base lg:text-xl font-bold">
-            এজেন্ট দের সাথে লেনদেন এর আগে ভেল্কির নিয়ম গুলো জেনে নিন!!
+            এজেন্ট দের সাথে লেনদেন এর আগে 1ten এর নিয়ম গুলো জেনে নিন!!
           </p>
           <p>
             **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন 1ten365.com
@@ -117,6 +118,9 @@ const SiteAdminPage = () => {
         
         {/* admin table end */}
       </div>
+    </div>
+    <div className="w-[90%] mx-auto mb-2">
+    <FooterSection/>
     </div>
     </Layout>
   );

@@ -1,3 +1,4 @@
+import FooterSection from "@/components/home-two/CustomerServiceHome/FooterSection";
 import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import axios from "axios";
@@ -309,6 +310,9 @@ const AdminPage = () => {
           {/* admin table end */}
         </div>
       </div>
+      <div className="w-[90%] mx-auto mb-2">
+    <FooterSection/>
+    </div>
     </Layout>
   );
 };

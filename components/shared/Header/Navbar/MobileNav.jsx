@@ -23,14 +23,14 @@ const MobileNav = () => {
   const token=ls?.getItem('token') 
 
   const menus = [
-    { title: "হোম", url: "/" },
+    { title: "হোম", url: "/Admins/HomePage" },
     { title: "কাস্টমার সার্ভিস", url: "/Admins/CustomerService" },
     // { title: "সাইট এডমিন", url: "/Admins/SiteAdmin" },
     { title: "এডমিন", url: "/Admins/Admin" },
     { title: "সাব-এডমিন", url: "/Admins/SubAdmin" },
     { title: "সুপার-এজেন্ট", url: "/Admins/SuperAgent" },
     { title: "এজেন্ট", url: "/Admins/Agent" },
-    token && { title: "Dashboard", url: "/Dashboard/ViewAdmins" },
+    { title: "Dashboard", url: "/Dashboard/ViewAdmins" },
   ];
 
   return (
@@ -55,9 +55,9 @@ const MobileNav = () => {
                 {menus.map((item, i) => (
                   <li key={i}>
                     <Link
-                      href={item.url}
+                      href={item?.url}
                       className={`${
-                        pathname === item.url ? "bg-slate-100" : ""
+                        pathname === item?.url ? "bg-slate-100" : ""
                       } px-5 py-1 rounded-md hover:bg-slate-100`}
                     >
                       {item.title}

@@ -3,12 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { FaNotesMedical, FaPlus } from "react-icons/fa";
+import { FaUsersViewfinder } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "react-modern-drawer/dist/index.css";
 import logo from "../../public/images/1ten365/1ten365logo.png";
-import { MdOutlineGridView } from "react-icons/md";
-import { FaNotesMedical, FaPlus } from "react-icons/fa";
-import { FaUsersViewfinder } from "react-icons/fa6";
 
 // Import Drawer dynamically to disable SSR
 const Drawer = dynamic(() => import("react-modern-drawer"), { ssr: false });
@@ -69,9 +68,9 @@ const DashboardMobileNav = () => {
                 {menus.map((item, i) => (
                   <li key={i}>
                     <Link
-                      href={item.url}
+                      href={item?.url}
                       className={`${
-                        pathname === item.url ? "bg-slate-100" : ""
+                        pathname === item?.url ? "bg-slate-100" : ""
                       } px-5 py-1 rounded-md hover:bg-slate-100`}
                     >
                       {item.title}

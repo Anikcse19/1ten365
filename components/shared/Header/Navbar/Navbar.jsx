@@ -5,21 +5,25 @@ const Navbar = () => {
   const router = useRouter();
   const { pathname } = router;
 
-  const ls=typeof window !=="undefined" ? window.localStorage :null
-const token=ls?.getItem('token') 
+  const ls = typeof window !== "undefined" ? window.localStorage : null;
+  const token = ls?.getItem("token");
   return (
     <div className="w-full">
       <div className="w-[80%] bg-gray-300 mx-auto py-1">
         <div className="flex justify-center gap-5 w-full ">
-          
           <Link
-            className={`text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded ${pathname=='/' && "bg-gray-900 text-white"}`}
+            className={`text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded ${
+              pathname == "/" && "bg-gray-900 text-white"
+            }`}
             href="/"
           >
             হোম
           </Link>
           <Link
-            className={`text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded ${pathname=='/Admins/CustomerService' && "bg-gray-900 text-white"}`} href="/Admins/CustomerService"
+            className={`text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded ${
+              pathname == "/Admins/CustomerService" && "bg-gray-900 text-white"
+            }`}
+            href="/Admins/CustomerService"
           >
             কাস্টমার সার্ভিস
           </Link>
@@ -64,17 +68,14 @@ const token=ls?.getItem('token')
             এজেন্ট
           </Link>
 
-{
-  token && (
-<Link
-            className="text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded"
-            href="/Dashboard/ViewAdmins"
-          >
-            Dashboard
-          </Link>
-  )
-}
-          
+          {token && (
+            <Link
+              className="text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded"
+              href="/Dashboard/ViewAdmins"
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -8,37 +8,38 @@ import { HiInformationCircle } from "react-icons/hi";
 import { IoLogoWhatsapp } from "react-icons/io";
 import logo from "../public/images/1ten365logo.png";
 
-const ls=typeof window != "undefined" ? window.localStorage :null
-const token=ls?.getItem('token')
+const ls = typeof window != "undefined" ? window.localStorage : null;
+const token = ls?.getItem("token");
 export default function Home() {
-  const [quickAgent,setQuickAgent]=useState({})
+  const [quickAgent, setQuickAgent] = useState({});
 
-  useEffect(()=>{
-    fetch(`${base_url}/quick-agent`,{
-      method:'GET',
-      headers:{
-        'Accept':'application/json',
-        'Content-type':'application/json',
-        'Authorization':`Bearer ${token}`
-      }
-    }).then(res=>res.json()).then(data=>{
-      setQuickAgent(data?.quickagent)
+  useEffect(() => {
+    fetch(`${base_url}/quick-agent`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     })
-  },[])
+      .then((res) => res.json())
+      .then((data) => {
+        setQuickAgent(data?.quickagent);
+      });
+  }, []);
 
   return (
-    <div className="bg-gray-700 py-10">
+    <div className="bg-gray-700 pb-10 lg:py-10">
       <>
-      <div className="hidden lg:block">
-        <Logo />
-        <Navbar />
-      </div>
-      <div className="flex lg:hidden justify-between items-center shadow-md px-4 py-2">
-        <Image width={120} height={90} src={logo} alt="" />
-        <MobileNav />
-      </div>
+        <div className="hidden lg:block">
+          <Logo />
+          <Navbar />
+        </div>
+        <div className="flex lg:hidden justify-between items-center shadow-md px-4 py-2">
+          <Image width={120} height={90} src={logo} alt="" />
+          <MobileNav />
+        </div>
       </>
-      
 
       {/* quick master agent number */}
       <div className="w-full my-10 ">
@@ -60,16 +61,31 @@ export default function Home() {
                     <span className="text-base md:text-2xl font-bold">
                       Agent ID
                     </span>
-                    <span className="text-[#FFA500] font-bold">{quickAgent?.input_id}</span>
+                    <span className="text-[#FFA500] font-bold">
+                      {quickAgent?.input_id}
+                    </span>
                   </div>
                   {/* what's app number */}
                   <div className="flex justify-between items-center">
                     <span className="cursor-pointer">
-                      <IoLogoWhatsapp onClick={()=>{
-                        window.open(`https://wa.me/${quickAgent?.profile?.wa_link ? quickAgent?.profile?.wa_link : quickAgent?.profile?.phone},'_blank'`)
-                      }} className="text-xl md:text-4xl text-[#00F046]" />
+                      <IoLogoWhatsapp
+                        onClick={() => {
+                          window.open(
+                            `https://wa.me/${
+                              quickAgent?.profile?.wa_link
+                                ? quickAgent?.profile?.wa_link
+                                : quickAgent?.profile?.phone
+                            },'_blank'`
+                          );
+                        }}
+                        className="text-xl md:text-4xl text-[#00F046]"
+                      />
                     </span>
-                    <span className="text-[#FFA500] font-bold">{quickAgent?.profile?.wa_link ? quickAgent?.profile?.wa_link : quickAgent?.profile?.phone}</span>
+                    <span className="text-[#FFA500] font-bold">
+                      {quickAgent?.profile?.wa_link
+                        ? quickAgent?.profile?.wa_link
+                        : quickAgent?.profile?.phone}
+                    </span>
                   </div>
                 </div>
               </div>

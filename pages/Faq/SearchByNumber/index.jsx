@@ -36,8 +36,8 @@ const searchByNumber = () => {
   // console.log(searchedResult[0],'aaaaaa');
   return (
     <Layout>
-      <div className="bg-white w-full min-h-screen py-12">
-        <div className="w-[90%] py-12 mx-auto  flex flex-col items-center justify-center gap-3 lg:gap-6 border border-gray-500">
+      <div className="bg-white lg:w-[76%] mx-auto min-h-screen my-2 p-5 lg:p-10">
+        <div className=" flex flex-col items-center justify-center gap-3 lg:gap-6 border border-gray-500">
           <div>
             <p className="text-base lg:text-xl lg:font-bold">
               ফোন নাম্বার দিয়ে সার্চ করুন:
@@ -175,7 +175,7 @@ const searchByNumber = () => {
         )}
         {/* show search result end */}
       </div>
-      <div className="w-[90%] mx-auto ">
+      <div className="lg:w-[76%] mx-auto ">
         <FooterSection />
       </div>
     </Layout>

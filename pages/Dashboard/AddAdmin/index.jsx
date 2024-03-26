@@ -96,7 +96,7 @@ const AddAdmin = () => {
             <p className=" text-lg lg:text-2xl underline font-semibold">Add Admins</p>
           </div>
 
-        <section className="mt-8 w-[80%] p-6 mx-auto bg-gray-300 rounded-md shadow-md ">
+        <section className="mt-8 w-[100%] md:w-[80%] p-6 mx-auto bg-gray-300 rounded-md shadow-md ">
                   <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               {/* Name */}

@@ -7,9 +7,9 @@ const ConditionPage = () => {
   return (
     <Layout>
       <div className="bg-white w-full min-h-screen">
-        <div className="p-12">
-          <div className=" border border-gray-400 p-10">
-            <div className="w-[100%] mx-auto p-5 my-3">
+        <div className="p-2 md:p-12">
+          <div className=" border border-gray-400 p-3 md:p-10">
+            <div className="w-[100%] mx-auto md:p-5 my-3">
               <Image
                 width={400}
                 height={200}
@@ -22,7 +22,7 @@ const ConditionPage = () => {
               একাউন্ট খোলার নিয়ম বা শর্ত গুলো কি কি?
             </p>
 
-            {/* proxy links */}
+           
             <div className="border-l-4 border-gray-600 mt-12 px-3">
               <div>
                 <h1 className="my-2 font-bold text-base md:text-xl">

@@ -162,7 +162,8 @@ const Agent = () => {
             </div>
           )}
           {searchedResult?.id && (
-            <div className="w-[80%] mx-auto bg-white  p-5 my-10">
+            <div className="md:w-[80%] w-[100%] mx-2 md:mx-auto bg-white  p-5 my-10">
+              
               {/* show search admin details start*/}
               <p className="text-center text-base lg:text-lg font-bold mb-3">
                 উনি 1ten365 এর একজন অনলাইন {searchedResult?.profile?.type}{" "}
@@ -170,7 +171,7 @@ const Agent = () => {
               </p>
               <div className=" w-full border border-black flex flex-col p-2">
                 {/* 1st row start */}
-                <div className="w-full flex border border-black py-3 bg-blue-300">
+                <div className="w-full flex border border-black p-3 bg-blue-300">
                   <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                     <p className="text-black">উনার এডমিন আইডিঃ </p>
                   </div>
@@ -181,7 +182,7 @@ const Agent = () => {
                 {/* 1st row end */}
 
                 {/* 2nd row start */}
-                <div className=" w-full flex border border-black py-3 bg-blue-100">
+                <div className=" w-full flex border border-black p-3 bg-blue-100">
                   <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                     <p className="text-black">উনার হোয়াটসঅ্যাপ নাম্বারঃ</p>
                   </div>
@@ -201,11 +202,9 @@ const Agent = () => {
                 </div>
                 {/* 2nd row end */}
               </div>
-
               {/* show search admin details end*/}
 
               {/* show parent admin details start*/}
-
               {searchedResult?.super?.id && (
                 <div>
                   <p className="text-center text-base lg:text-lg font-bold m-3">
@@ -217,9 +216,9 @@ const Agent = () => {
                   </p>
                   <div className=" w-full border border-black flex flex-col p-2">
                     {/* 1st row start */}
-                    <div className="w-full flex border border-black py-3 bg-blue-300">
+                    <div className="w-full flex border border-black p-3 bg-blue-300">
                       <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
-                        <p className="text-black">উনার এডমিন এর এডমিন আইডিঃ </p>
+                        <p className="text-black px-1">উনার এডমিন এর এডমিন আইডিঃ </p>
                       </div>
                       <div className=" w-[50%] h-full flex justify-center items-center text-white">
                         <p className="text-black">2</p>
@@ -228,9 +227,9 @@ const Agent = () => {
                     {/* 1st row end */}
 
                     {/* 2nd row start */}
-                    <div className=" w-full flex border border-black py-3 bg-blue-100">
+                    <div className=" w-full flex border border-black p-3 bg-blue-100">
                       <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
-                        <p className="text-black">
+                        <p className="text-black px-1">
                           উনার এডমিন এর হোয়াটসঅ্যাপ নাম্বারঃ
                         </p>
                       </div>
@@ -256,7 +255,7 @@ const Agent = () => {
           {/* show search result end */}
 
           {/* user alert start*/}
-          <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
+          <div className="md:w-[80%] w-[100%] mx-3 md:mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
             <p className="text-base lg:text-xl font-bold">
               এজেন্ট দের সাথে লেনদেন এর আগে 1ten365 এর নিয়ম গুলো জেনে নিন!!
             </p>
@@ -284,8 +283,8 @@ const Agent = () => {
           {/* admin table start */}
           {superAgents?.map((superAgent) => (
             <div
-              className="w-[80%] mx-auto bg-white   p-5 my-10"
-              // key={admin?.input_id}
+              className="md:w-[80%] w-[100%] mx-2 md:mx-auto bg-white   p-5 my-10"
+              key={superAgent?.id}
             >
               <div className="text-center">
                 {superAgent?.super?.id ? (
@@ -317,22 +316,22 @@ const Agent = () => {
                 <table className="w-full">
                   <thead className="sticky top-0 text-base bg-gray-400 w-full">
                     <tr className="border-b border-orange-700 ">
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         ID NO
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         NAME
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         AGENT
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         APP
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         PHONE NUMBER
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         COMPALIN
                       </th>
                     </tr>
@@ -369,6 +368,8 @@ const Agent = () => {
                           </td>
                           <td
                             onClick={() => {
+                              setSearchedResult({})
+                              setUserNotFound(false)
                               setCurrentSelected({
                                 obj:{},status:false
                               })

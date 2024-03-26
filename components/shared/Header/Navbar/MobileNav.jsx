@@ -30,7 +30,7 @@ const MobileNav = () => {
     { title: "সাব-এডমিন", url: "/Admins/SubAdmin" },
     { title: "সুপার-এজেন্ট", url: "/Admins/SuperAgent" },
     { title: "এজেন্ট", url: "/Admins/Agent" },
-    { title: "Dashboard", url: "/Dashboard/ViewAdmins" },
+    { title: "ড্যাশবোর্ড", url: "/Dashboard/ViewAdmins" },
   ];
 
   return (

@@ -7,8 +7,8 @@ const FbGroupLinkPage = () => {
   return (
     <Layout>
       <div className="bg-white w-full min-h-screen">
-        <div className="p-12">
-          <div className=" border border-gray-400 p-10">
+        <div className="p-3 md:p-12">
+          <div className=" border border-gray-400 p-3 md:p-10">
             <div className="w-[100%] mx-auto p-5 my-3">
               <Image
                 width={400}

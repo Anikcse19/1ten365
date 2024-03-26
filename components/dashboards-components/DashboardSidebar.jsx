@@ -29,12 +29,12 @@ const DashboardSidebar = () => {
   return (
     <>
       <nav className="top-0 left-0 w-full h-screen border-r bg-white">
-        <div class="flex flex-col h-full">
+        <div className="flex flex-col h-full">
           <div className="h-20 flex items-center px-8">
             <Link 
             href="/"
             className="flex-none">
-              <Image src={logo} width={140} className="mx-auto" />
+              <Image src={logo} width={140} className="mx-auto" alt="" />
             </Link>
           </div>
           <div className="flex-1 flex flex-col h-full overflow-auto">

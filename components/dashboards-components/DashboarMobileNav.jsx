@@ -43,7 +43,7 @@ const DashboardMobileNav = () => {
     <div className="">
       <div className="h-[50px] w-full flex items-center justify-between px-5 shadow-md">
         <div className="flex justify-center">
-          <Image width={80} height={80} src={logo} alt="" />
+          <Image onClick={()=>router.push('/')} width={80} height={80} src={logo} alt="" />
         </div>
 
         <button onClick={toggleDrawer} className="text-2xl">

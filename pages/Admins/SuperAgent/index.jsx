@@ -164,7 +164,7 @@ const SuperAgent = () => {
               </p>
               <div className=" w-full border border-black flex flex-col p-2">
                 {/* 1st row start */}
-                <div className="w-full flex border border-black py-3 bg-blue-300">
+                <div className="w-full flex border border-black p-3 bg-blue-300">
                   <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                     <p className="text-black">উনার এডমিন আইডিঃ </p>
                   </div>
@@ -175,7 +175,7 @@ const SuperAgent = () => {
                 {/* 1st row end */}
 
                 {/* 2nd row start */}
-                <div className=" w-full flex border border-black py-3 bg-blue-100">
+                <div className=" w-full flex border border-black p-3 bg-blue-100">
                   <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                     <p className="text-black">উনার হোয়াটসঅ্যাপ নাম্বারঃ</p>
                   </div>
@@ -210,7 +210,7 @@ const SuperAgent = () => {
                   </p>
                   <div className=" w-full border border-black flex flex-col p-2">
                     {/* 1st row start */}
-                    <div className="w-full flex border border-black py-3 bg-blue-300">
+                    <div className="w-full flex border border-black p-3 bg-blue-300">
                       <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                         <p className="text-black">উনার এডমিন এর এডমিন আইডিঃ </p>
                       </div>
@@ -221,7 +221,7 @@ const SuperAgent = () => {
                     {/* 1st row end */}
 
                     {/* 2nd row start */}
-                    <div className=" w-full flex border border-black py-3 bg-blue-100">
+                    <div className=" w-full flex border border-black p-3 bg-blue-100">
                       <div className=" w-[50%] h-full flex justify-center items-center text-white border-r-2 border-black">
                         <p className="text-black">
                           উনার এডমিন এর হোয়াটসঅ্যাপ নাম্বারঃ
@@ -271,7 +271,7 @@ const SuperAgent = () => {
           {/* poster end */}
 
           {/* user alert start*/}
-          <div className="lg:w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
+          <div className="md:w-[80%] w-[100%] mx-2 md:mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
             <p className="text-base lg:text-xl font-bold">
               এজেন্ট দের সাথে লেনদেন এর আগে 1ten এর নিয়ম গুলো জেনে নিন!!
             </p>
@@ -289,7 +289,7 @@ const SuperAgent = () => {
           {/* admin table start */}
           {subAdmins?.map((admin) => (
             <div
-              className="lg:w-[80%] mx-auto bg-white   p-5 my-10"
+              className="md:w-[80%] w-[100%]  md:mx-auto bg-white  p-5 my-10"
               key={admin?.input_id}
             >
               <div className="text-center">
@@ -321,22 +321,22 @@ const SuperAgent = () => {
                 <table className="w-full">
                   <thead className="sticky top-0 text-base bg-gray-400 w-full">
                     <tr className="border-b border-orange-700 ">
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         ID NO
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         NAME
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         AGENT
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         APP
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         PHONE NUMBER
                       </th>
-                      <th scope="col" className="px-10 py-3">
+                      <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                         COMPALIN
                       </th>
                     </tr>
@@ -373,7 +373,8 @@ const SuperAgent = () => {
                           </td>
                           <td
                             onClick={() => {
-                              
+                              setSearchedResult({})
+                              setUserNotFound(false)
                               setCurrentSelected({
                                 obj: {},
                                 status: false,

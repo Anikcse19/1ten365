@@ -73,7 +73,7 @@ const Navbar = () => {
               className="text-base md:text-xl font-bold  text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded"
               href="/Dashboard/ViewAdmins"
             >
-              Dashboard
+              ড্যাশবোর্ড
             </Link>
           )}
         </div>

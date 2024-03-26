@@ -107,7 +107,7 @@ const ViewAdmins=()=> {
   return (
     <DashboardLayout>
       <div className="">
-        <div className=" mx-auto px-4   p-5">
+        <div className=" mx-auto md:px-4   md:p-5">
           <div className="items-start justify-between md:flex">
             <div className="max-w-lg">
               <h3 className="text-slate-800 text-xl font-bold sm:text-2xl">

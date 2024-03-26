@@ -58,7 +58,7 @@ const searchByNumber = () => {
           <div>
             <button
               onClick={handleAdminSearch}
-              className="bg-blue-500 px-6 py-1 rounded text-white font-bold"
+              className="bg-blue-500 px-6 py-1 mb-2 rounded text-white font-bold"
             >
               Submit
             </button>

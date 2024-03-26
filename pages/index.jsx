@@ -43,7 +43,7 @@ export default function Home() {
 
       {/* quick master agent number */}
       <div className="w-full my-10 ">
-        <div className="w-[70%] bg-gray-600 mx-auto rounded-md">
+        <div className="w-[90%] md:w-[70%] bg-gray-600 mx-auto rounded-md">
           {/* title */}
           <div className="w-full rounded-md bg-stone-800 p-4 flex items-center gap-3">
             <HiInformationCircle className="text-blue-500 text-2xl" />
@@ -54,14 +54,14 @@ export default function Home() {
           {/* body */}
           <div className="flex justify-center  items-center w-full h-full bg-gray-600 py-10 md:py-16">
             <div className="p-3 bg-white">
-              <div className="bg-gray-500 py-3 w-[300px] px-2">
+              <div className="bg-gray-500 py-3 w-[200px] md:w-[300px] px-2">
                 <div className="flex flex-col gap-2 justify-center">
                   {/* agent id */}
                   <div className="flex justify-between items-center">
                     <span className="text-base md:text-2xl font-bold">
                       Agent ID
                     </span>
-                    <span className="text-[#FFA500] font-bold">
+                    <span className="text-[#eeff54] font-bold">
                       {quickAgent?.input_id}
                     </span>
                   </div>
@@ -81,7 +81,7 @@ export default function Home() {
                         className="text-xl md:text-4xl text-[#00F046]"
                       />
                     </span>
-                    <span className="text-[#FFA500] font-bold">
+                    <span className="text-[#eeff54] font-bold">
                       {quickAgent?.profile?.wa_link
                         ? quickAgent?.profile?.wa_link
                         : quickAgent?.profile?.phone}
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* how to open account */}
       <div className="w-full my-10">
-        <div className="w-[70%] bg-gray-600 mx-auto  rounded-md">
+        <div className="w-[90%] md:w-[70%] bg-gray-600 mx-auto  rounded-md">
           {/* title */}
           <div className="w-full rounded-md bg-stone-800 p-4 flex items-center gap-3">
             <HiInformationCircle className="text-blue-500 text-2xl" />
@@ -121,7 +121,7 @@ export default function Home() {
 
       {/* Agent List */}
       <div className="w-full my-10">
-        <div className="w-[70%] bg-gray-600 mx-auto  rounded-md">
+        <div className="w-[90%] md:w-[70%] bg-gray-600 mx-auto  rounded-md">
           {/* title */}
           <div className="w-full rounded-md bg-stone-800 p-4 flex items-center gap-3">
             <HiInformationCircle className="text-blue-500 text-2xl" />
@@ -149,7 +149,7 @@ export default function Home() {
 
       {/* clasiification of agents */}
       <div className="w-full mt-10">
-        <div className="w-[70%] bg-gray-600 mx-auto  rounded-md">
+        <div className="w-[90%] md:w-[70%] bg-gray-600 mx-auto  rounded-md">
           {/* title */}
           <div className="w-full rounded-md bg-stone-800 p-4 flex items-center gap-3">
             <HiInformationCircle className="text-blue-500 text-2xl" />

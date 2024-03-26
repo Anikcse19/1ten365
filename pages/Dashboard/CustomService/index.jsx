@@ -82,8 +82,7 @@ const CustomService = () => {
       name: customerName,
       phone: customerPhone,
       wa_link: customerWp,
-    };
-   
+    }; 
 
     axios
       .post(`${base_url}/types/create`, data, {

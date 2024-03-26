@@ -35,7 +35,7 @@ const SiteAdminPage = () => {
        
 
         {/* user alert start*/}
-        <div className="w-[80%] mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
+        <div className="w-[100%] md:w-[80%] mx-1 md:mx-auto bg-white border-l-4 border-gray-500  p-5 my-10">
           <p className="text-base lg:text-xl font-bold">
             এজেন্ট দের সাথে লেনদেন এর আগে 1ten এর নিয়ম গুলো জেনে নিন!!
           </p>
@@ -52,7 +52,7 @@ const SiteAdminPage = () => {
 
         {/* admin table start */}
         
-            <div className="w-[80%] mx-auto bg-white   p-5 my-10" >
+            <div className="w-[100%] md:w-[80%] mx-auto bg-white   p-5 my-10" >
               {/* <div className="text-center">
               <span className="text-center text-base md:text-xl">এডমিন <p className="text-lg md:text-2xl font-bold inline">{admin?.name}</p> এর অধীনে সর্বমোট সাব-এডমিন আছে {admin?.children?.length} জন</span>
               </div> */}
@@ -60,22 +60,22 @@ const SiteAdminPage = () => {
           <table className="w-full">
             <thead className="sticky top-0 text-sm lg:text-base bg-gray-400 w-full">
               <tr className="border-b border-orange-700 ">
-                <th scope="col" className="px-5 lg:px-10 py-3">
+                <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                   ID NO
                 </th>
-                <th scope="col" className="px-5 lg:px-10 py-3">
+                <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                   NAME
                 </th>
-                <th scope="col" className="px-5 lg:px-10 py-3">
+                <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                   AGENT
                 </th>
-                <th scope="col" className="px-5 lg:px-10 py-3">
+                <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                   APP
                 </th>
-                <th scope="col" className="px-5 lg:px-10 py-3">
+                <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                   PHONE NUMBER
                 </th>
-                {/* <th scope="col" className="px-5 lg:px-10 py-3">
+                {/* <th scope="col" className="px-3 md:px-10 py-1 md:py-3 text-xs md:text-base ">
                   COMPALIN
                 </th> */}
               </tr>

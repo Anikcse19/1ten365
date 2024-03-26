@@ -8,7 +8,7 @@ const Navbar = () => {
   const generalQsns = [
     { title: "1Ten প্রক্সী লিঙ্ক", url: "/Faq/ProxyLink" },
     { title: "1Ten তে একাউন্ট খুলবেন?", url: "/Faq/OpenAccount" },
-    { title: "এজেন্ট এর নতুন নাম্বার", url: "" },
+    { title: "এজেন্ট এর নতুন নাম্বার", url: "/Faq/OldNewNumber" },
     { title: "ফোন নাম্বার সার্চ করুন", url: "/Faq/SearchByNumber" },
   ];
 
@@ -47,7 +47,7 @@ const Navbar = () => {
                 {generalQsns.map((item, i) => (
                   <li
                     key={i}
-                    className=" text-slate-900 hover:text-slate-800 p-1 hover:bg-slate-200 mt-2"
+                    className=" text-slate-900  p-1 hover:bg-black hover:text-white cursor-pointer rounded mt-2"
                   >
                     <Link href={item?.url}>{item?.title}</Link>
                   </li>
@@ -64,7 +64,7 @@ const Navbar = () => {
                 {agentListMenus.map((item, i) => (
                   <li
                     key={i}
-                    className=" text-slate-900 hover:text-slate-800 p-1 hover:bg-slate-200 mt-2"
+                    className=" text-slate-900 hover:text-white rounded p-1 hover:bg-black cursor-pointer mt-2"
                   >
                     <Link href={item.url}>{item.title}</Link>
                   </li>

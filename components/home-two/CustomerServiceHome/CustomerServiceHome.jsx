@@ -144,6 +144,7 @@ const CustomerServiceHome = () => {
 
           <div className="border p-5 mt-1">
             <Image
+            onClick={()=>router.push('/Faq/OpenAccount')}
               src={createNewAccount}
               alt="Image"
               width={550}

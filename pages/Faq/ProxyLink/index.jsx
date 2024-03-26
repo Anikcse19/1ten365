@@ -28,10 +28,10 @@ const ProxyLink = () => {
   ];
   return (
     <Layout>
-      <div className="bg-white w-full min-h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 lg:p-12 mx-auto">
+      <div className="bg-white bg-green-20 mx-auto lg:w-[76%] min-h-screen">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 lg:px-0 my-2 mx-auto">
           <div className="col-span-2 border border-gray-400 p-5">
-            <div className="w-[100%] mx-auto p- my-">
+            <div>
               <Image
                 width={1920}
                 height={1080}
@@ -75,7 +75,7 @@ const ProxyLink = () => {
           <div className="col-span-1 bg-gray-100"></div>
         </div>
 
-        <div className="w-[90%] mx-auto ">
+        <div className="w-[100%] mx-auto ">
           <FooterSection />
         </div>
       </div>

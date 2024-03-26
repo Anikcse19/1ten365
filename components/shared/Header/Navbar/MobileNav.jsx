@@ -19,8 +19,8 @@ const MobileNav = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const ls=typeof window !=="undefined" ? window.localStorage :null
-  const token=ls?.getItem('token') 
+  const ls = typeof window !== "undefined" ? window.localStorage : null;
+  const token = ls?.getItem("token");
 
   const menus = [
     { title: "হোম", url: "/Admins/HomePage" },
@@ -38,6 +38,7 @@ const MobileNav = () => {
       <button onClick={toggleDrawer} className="text-2xl">
         <GiHamburgerMenu />
       </button>
+
       <Drawer
         open={isOpen}
         onClose={toggleDrawer}
@@ -60,7 +61,7 @@ const MobileNav = () => {
                         pathname === item?.url ? "bg-slate-100" : ""
                       } px-5 py-1 rounded-md hover:bg-slate-100`}
                     >
-                      {item.title}
+                      {item?.title}
                     </Link>
                   </li>
                 ))}

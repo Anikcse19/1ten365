@@ -6,9 +6,9 @@ import openAccPoster from "../../../public/images/1ten365/how to create account.
 const OpenAccount = () => {
   return (
     <Layout>
-      <div className="bg-white w-full min-h-screen">
-        <div className="p-5 lg:p-12">
-          <div className=" border border-gray-400 p-5 lg:p-10">
+      <div className="bg-white lg:w-[76%] mx-auto min-h-screen">
+        <div className="p-5 my-2 lg:px-0">
+          <div className=" border border-gray-400 p-5">
             <div className="mx-auto">
               <Image
                 width={1920}
@@ -98,7 +98,7 @@ const OpenAccount = () => {
           </div>
         </div>
       </div>
-      <div className="w-[90%] mx-auto ">
+      <div className="lg:w-[76%] mx-auto ">
         <FooterSection />
       </div>
     </Layout>

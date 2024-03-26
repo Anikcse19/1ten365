@@ -97,7 +97,7 @@ const CustomerServiceHome = () => {
 
             {/* Service List */}
             <div className="p-5">
-              <div className="grid lg:rid-cols-3 items-center gap-4">
+              <div className="grid lg:grid-cols-3 items-center gap-4">
                 {AgentDatas.map((item, i) => (
                   <ServiceCard item={item} key={i} />
                 ))}

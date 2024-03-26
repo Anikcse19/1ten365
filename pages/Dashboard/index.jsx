@@ -17,14 +17,14 @@ const DashboardLayout = ({ children }) => {
         <DashboardMobileNav />
       </div>
 
-      {/* <div className="p-5 lg:w-[79%] h-full">
+      <div className="p-5 lg:w-[79%] h-full">
         {router.pathname === "/Dashboard/ViewAdmins" && (
           <div className="w-full">
             <p className="text-lg lg:text-2xl underline font-semibold">Dashboard</p>
           </div>
         )}
         {children}
-      </div> */}
+      </div>
     </div>
   );
 };

@@ -83,7 +83,7 @@ const CustomService = () => {
       phone: customerPhone,
       wa_link: customerWp,
     };
-    console.log(data, "data");
+   
 
     axios
       .post(`${base_url}/types/create`, data, {

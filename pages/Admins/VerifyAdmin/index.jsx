@@ -195,7 +195,7 @@ const verifyAdmin = () => {
           )}
         {/* show search result end */}
     </div>
-    <div className="w-[90%] mx-auto mt-12 mb-2">
+    <div className="lg:w-[76%] mx-auto mt-12 mb-2">
     <FooterSection/>
     </div>
    </Layout>

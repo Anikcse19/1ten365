@@ -29,7 +29,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-gray-700 pb-10 lg:py-10">
+    <div className="bg-[#e8ce25e8] pb-10 lg:py-10">
       <>
         <div className="hidden lg:block">
           <Logo />
@@ -43,9 +43,9 @@ export default function Home() {
 
       {/* quick master agent number */}
       <div className="w-full my-10 ">
-        <div className="w-[90%] md:w-[70%] bg-gray-600 mx-auto rounded-md">
+        <div className="w-[90%] md:w-[70%] bg-[#393939] mx-auto rounded-md">
           {/* title */}
-          <div className="w-full rounded-md bg-stone-800 p-4 flex items-center gap-3">
+          <div className="w-full rounded-md bg-[#292929] p-4 flex items-center gap-3">
             <HiInformationCircle className="text-blue-500 text-2xl" />
             <p className="text-white font-semibold md:font-bold text-base md:text-xl">
               Quick Master Agent Number
@@ -140,7 +140,7 @@ export default function Home() {
                 করতে হলে এজেন্ট লিস্টে হোয়াটসাপ আইকন উপরে ক্লিক করুন অথবা ফোন
                 নাম্বার টি মোবাইলে সেভ করে তাকে হোয়াটসাপ এ মসেজ পাঠাতে পারবেন।
                 হোয়াটসাপ এপ টি আপনার মোবাইলে আগে থেকেই থাকতে হবে। না থাকলে গুগুল
-                প্লে থেকে ইন্সটল করে নিন। অনলাইন মাষ্টার এজেন্ট লিস্টঃ
+                প্লে থেকে ইন্সটল করে নিন।<p onClick={()=>router.push('/Admins/Agent')} className="text-blue-600 underline text-center"> অনলাইন মাষ্টার এজেন্ট লিস্টঃ</p>
               </p>
             </div>
           </div>
@@ -161,33 +161,22 @@ export default function Home() {
           <div className=" bg-gray-600 px-5 py-10 md:py-12">
             <div className="w-full bg-white px-5 md:px-12 py-3 border border-orange-500 text-center md:text-left">
               <span className="text-base md:text-xl">
-                <p className="text-blue-600 underline">
+                <p onClick={()=>router.push('/Admins/SuperAgent')} className="text-blue-600 underline">
                   অনলাইন সুপার এজেন্ট লিস্টঃ
                 </p>
                 সুপার এজেন্ট রা, ইউজার একাউন্ট এবং মাষ্টার এজেন্ট একাউন্ট খুলে
                 দিতে পারেন। কোন সুপার এজেন্ট এর নামে অভিযোগ থাকলে - সরাসরি এডমিন
                 কে জানাতে হবে। উপরে মেনু তে এডমিন লিষ্ট দেয়া আছে।
-                <p className="text-blue-600 underline">
+                <p onClick={()=>router.push('/Admins/Agent')} className="text-blue-600 underline">
                   অনলাইন মাষ্টার এজেন্ট লিস্টঃ
                 </p>
                 অনলাইন মাষ্টার এজেন্ট রা, শুধু ইউজার একাউন্ট একাউন্ট খুলে দিতে
                 পারেন। কোন মাষ্টার এজেন্ট এর নামে অভিযোগ থাকলে - সরাসরি সুপার
                 এজেন্ট এর কাছে অভিযোগ করতে হবে।
-                <p className="text-blue-600 underline">
+                <p onClick={()=>router.push('/Faq/ComplainAgent')} className="text-blue-600 underline">
                   বিস্তারিত জানতে এই লিঙ্ক এ ক্লিক করুন।
                 </p>
-                <p className="text-blue-600 underline">
-                  লোকাল মাষ্টার এজেন্ট লিস্টঃ
-                </p>
-                লোকাল মাষ্টার এজেন্ট রা, শুধু ইউজার একাউন্ট একাউন্ট খুলে দিতে
-                পারেন। কিন্তু তাদের সাথে লেনদেন প্রতিটি ইউজার কে নিজ দায়িত্বে
-                লেনদেন করতে হবে। তাদের নামে কোন অভিযোগ কারো কাছে করা যাবে না।
-                লোকাল মাষ্টার এজেন্টঃ এই সব এজেন্ট সাধারনত – নিজের এলাকায় বা
-                পরিচিত দের সাথে লেনদেন করে । যারা আগে বাজি ধরিয়ে দিত, তাদের কেই
-                মুলত লোকাল এজেন্ট দেয়া হয়েছে। লোকাল এজেন্ট রা অনলাইনে আসে না
-                এবং তারা তাদের পরিচয় গোপন রাখতে চায়। লোকাল এজেন্ট দের সাথে
-                অনলাইনে কোন ভাবেই লেনদেন করবেন না, আর করে থাকলে তার দায়ভার
-                পুরোটাই আপনার।
+              
               </span>
             </div>
           </div>

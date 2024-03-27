@@ -7,7 +7,7 @@ import { FaNotesMedical, FaPlus } from "react-icons/fa";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "react-modern-drawer/dist/index.css";
-import logo from "../../public/images/1ten365/1ten365logo.png";
+import logo from "../../public/images/1ten365/1ten365logo2.png";
 
 // Import Drawer dynamically to disable SSR
 const Drawer = dynamic(() => import("react-modern-drawer"), { ssr: false });

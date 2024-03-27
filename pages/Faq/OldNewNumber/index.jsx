@@ -3,7 +3,7 @@ import Layout from "@/components/shared/Layout/Layout";
 import base_url from "@/utils/Url";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import superAgentPoster from "../../../public/images/1ten365/super agent list.png";
+import oldNewNumber from '../../../public/images/1ten365/agent new old numbers.png';
 
 const ls = typeof window != "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
@@ -36,7 +36,7 @@ const OldNewNumber = () => {
               width={400}
               height={200}
               className="w-[100%]"
-              src={superAgentPoster}
+              src={oldNewNumber}
               alt="poster"
             />
           </div>

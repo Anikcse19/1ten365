@@ -23,9 +23,9 @@ const MobileNav = () => {
   const token = ls?.getItem("token");
 
   const menus = [
-    { title: "হোম", url: "/Admins/HomePage" },
+    { title: "হোম", url: "" },
     { title: "কাস্টমার সার্ভিস", url: "/Admins/CustomerService" },
-    // { title: "সাইট এডমিন", url: "/Admins/SiteAdmin" },
+    { title: "ওল্ড/নিউ", url: "/Faq/OldNewnumber" },
     { title: "এডমিন", url: "/Admins/Admin" },
     { title: "সাব-এডমিন", url: "/Admins/SubAdmin" },
     { title: "সুপার-এজেন্ট", url: "/Admins/SuperAgent" },

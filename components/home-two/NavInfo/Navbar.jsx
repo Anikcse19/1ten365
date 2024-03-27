@@ -29,21 +29,22 @@ const Navbar = () => {
         <div className="flex items-center gap-x- w-full h-[50px]">
           <ul className="h-[50px] flex items-center">
             <li
-              className={`w-[150px] h-full font-semibold flex justify-center items-center hover:bg-slate-900 hover:text-white border-r ${
-                route.pathname === "/Admins/HomePage"
+            onClick={()=>route.push('/HomePage')}
+              className={`w-[150px] h-full font-semibold flex justify-center items-center hover:bg-slate-900 hover:text-white border-r cursor-pointer ${
+                route.pathname === "/HomePage"
                   ? "bg-slate-900 text-white"
                   : ""
               }`}
             >
-              <Link href="/Admins/HomePage">হোম পেইজ</Link>
+              <span >হোম পেইজ</span>
             </li>
 
-            <div className="dropdown h-full inline-block relative w-[200px] border-r">
-              <button className="w-full border-r text-gray-700 font-semibold py-2 px-4 flex justify-center items-end">
+            <div className={`dropdown h-full inline-block relative w-[200px] border-r ${route.pathname.includes('/Faq') && "bg-slate-900 text-white"}`}>
+              <button className={`w-full border-r  font-semibold py-2 px-4 flex justify-center items-end `}>
                 <span className="mr-1">সাধারণ প্রশ্ন উত্তর</span>
                 <TiArrowSortedDown className="rotate-[-45deg] text-xl -mb-1" />
               </button>
-              <ul className="dropdown-menu w-[200px] absolute hidden text-gray-700 pt-1 p-2 shadow-lg text-sm bg-gray-200 z-[1000]">
+              <ul className="dropdown-menu w-[200px] absolute hidden text-gray-700 pt-1 p-2 shadow-lg text-sm bg-gray-200 z-[1000] mt-1">
                 {generalQsns.map((item, i) => (
                   <li
                     key={i}
@@ -55,8 +56,8 @@ const Navbar = () => {
               </ul>
             </div>
 
-            <div className="dropdown h-full inline-block relative w-[200px] border-r">
-              <button className="w-full border-r text-gray-700 font-semibold py-2 px-4 flex justify-center items-end">
+            <div  className={`dropdown h-full inline-block relative w-[200px] border-r ${route.pathname.includes('/Admins/') && "bg-slate-900 text-white"}`}>
+              <button className="w-full border-r  font-semibold py-2 px-4 flex justify-center items-end">
                 <span className="mr-1">এজেন্ট লিস্ট</span>
                 <TiArrowSortedDown className="rotate-[-45deg] text-xl -mb-1" />
               </button>
